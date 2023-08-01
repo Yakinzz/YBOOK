@@ -13,7 +13,7 @@ namespace YBOOK
     {
         int ID;
         string Titulo;
-        string Autor;
+        int AutorID;
         string Idioma;
         string Editorial;
         string Categoria;
@@ -24,11 +24,11 @@ namespace YBOOK
         {
            
         }
-        public Libro(int iD, string titulo, string autor, string idioma, string editorial, string categoria, DateTime fechaPublicacion, int numeroPaginas)
+        public Libro(int iD, string titulo, int autor, string idioma, string editorial, string categoria, DateTime fechaPublicacion, int numeroPaginas)
         {
             ID = iD;
             Titulo = titulo;
-            Autor = autor;
+            AutorID = autor;
             Idioma = idioma;
             Editorial = editorial;
             Categoria = categoria;
@@ -38,7 +38,7 @@ namespace YBOOK
 
         [Key] public int ID1 { get => ID; set => ID = value; }
         public string Titulo1 { get => Titulo; set => Titulo = value; }
-        public string Autor1 { get => Autor; set => Autor = value; }
+        public int Autor1 { get => AutorID; set => AutorID = value; }
         public string Idioma1 { get => Idioma; set => Idioma = value; }
         public string Editorial1 { get => Editorial; set => Editorial = value; }
         public string Categoria1 { get => Categoria; set => Categoria = value; }

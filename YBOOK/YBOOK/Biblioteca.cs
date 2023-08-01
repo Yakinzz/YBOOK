@@ -71,7 +71,10 @@ namespace YBOOK
         {
             Button botonClicado = (Button)sender;
             string nombre = botonClicado.Text;
-            MessageBox.Show($"Has hecho clic en el botón con texto: {nombre}");
+            InformacionLibro form = new InformacionLibro(nombre,libros,cadenaConexion);
+            form.Show();
+
+            //MessageBox.Show($"Has hecho clic en el botón con texto: {nombre}");
         }
 
 

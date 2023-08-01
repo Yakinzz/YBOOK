@@ -23,8 +23,9 @@ namespace YBOOK
             
         }
 
-        public Autor(string nombre, string apellidos, string nacionalidad, string fechaNacimiento, string fechaDefuncion)
+        public Autor(int iD, string nombre, string apellidos, string nacionalidad, string fechaNacimiento, string fechaDefuncion)
         {
+            ID = iD;
             Nombre = nombre;
             Nacionalidad = nacionalidad;
             FechaNacimiento = fechaNacimiento;
@@ -40,9 +41,6 @@ namespace YBOOK
         public string Apellidos1 { get => Apellidos; set => Apellidos = value; }
 
 
-            /*public override string ToString()
-            {
-                //return "Codigo: " + Codigo + " ,Nombre: " + Nombre + " , CodigoEquipo: " + Codigo + " , Posicion:" + Posicion + " , Edad:" + Edad + " , Goles:" + Goles + " , TA:" + TA + " , TR:" + TR + " , Minutos:" + Minutos + " , Precio Mercado:" + PrecioMercado + " , Dorsal:" + Dorsal + " , Peso:" + Peso;
-            }*/
+            
         }
 }

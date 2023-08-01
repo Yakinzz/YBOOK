@@ -30,3 +30,4 @@ C:\Users\yagoa\Desktop\YBOOK\YBOOK\YBOOK\obj\Debug\YBOOK.MisLibros.resources
 C:\Users\yagoa\Desktop\YBOOK\YBOOK\YBOOK\obj\Debug\YBOOK.EditarPerfil.resources
 C:\Users\yagoa\Desktop\YBOOK\YBOOK\YBOOK\obj\Debug\YBOOK.Valoracion.resources
 C:\Users\yagoa\Desktop\YBOOK\YBOOK\YBOOK\bin\Debug\MaterialSkin.dll
+C:\Users\yagoa\Desktop\YBOOK\YBOOK\YBOOK\obj\Debug\YBOOK.InformacionLibro.resources
