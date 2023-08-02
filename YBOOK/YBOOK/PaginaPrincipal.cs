@@ -64,7 +64,7 @@ namespace YBOOK
         {
             label_NombreSeccion.Text = "MIS LIBROS";
             this.panelLoader.Controls.Clear();
-            MisLibros formMisLibros = new MisLibros()
+            MisLibros formMisLibros = new MisLibros(cadenaConexion,usuarios,id_usuario)
             {
                 Dock = DockStyle.Fill,
                 TopLevel = false,
