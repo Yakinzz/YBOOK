@@ -11,7 +11,7 @@ namespace YBOOK
     [Table("Usuarios")]
     public class Usuario
     {
-        int ID;
+        int UsuarioID;
         string Nombre;
         string Email;
         DateTime FechaNacimiento;
@@ -26,9 +26,9 @@ namespace YBOOK
            
         }
 
-        public Usuario(int iD, string nombre, string email, DateTime fechaNacimiento, string genero, string nacionalidad, int telefono, string username, string password)
+        public Usuario(int UsuarioiD, string nombre, string email, DateTime fechaNacimiento, string genero, string nacionalidad, int telefono, string username, string password)
         {
-            ID1 = iD;
+            ID1 = UsuarioiD;
             Nombre1 = nombre;
             Email1 = email;
             FechaNacimiento1 = fechaNacimiento;
@@ -39,7 +39,7 @@ namespace YBOOK
             this.Password = password;
         }
 
-        [Key] public int ID1 { get => ID; set => ID = value; }
+        [Key] public int ID1 { get => UsuarioID; set => UsuarioID = value; }
         public string Nombre1 { get => Nombre; set => Nombre = value; }
         public string Email1 { get => Email; set => Email = value; }
         public DateTime FechaNacimiento1 { get => FechaNacimiento; set => FechaNacimiento = value; }

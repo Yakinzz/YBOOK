@@ -94,6 +94,7 @@
     <Compile Include="EditarPerfil.Designer.cs">
       <DependentUpon>EditarPerfil.cs</DependentUpon>
     </Compile>
+    <Compile Include="EstadoLibro.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>

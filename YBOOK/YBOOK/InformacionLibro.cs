@@ -17,27 +17,75 @@ namespace YBOOK
         string nombre = null;
         List<Libro> libros = new List<Libro>();
         List<Autor> autores = new List<Autor>();
+        List<Usuario> usuarios = new List<Usuario>();
+        List<EstadoLibro> librosUsuario = new List<EstadoLibro>();
         public static string cadenaConexion = null;
-        public InformacionLibro(string nombre, List<Libro> librosA, string cadenaConexionA)
+        int idUsuario;
+
+        public InformacionLibro(string nombre, List<Libro> librosA, string cadenaConexionA,int idUsuarioA)
         {
             InitializeComponent();
             this.nombre = nombre;
             libros = librosA;
             cadenaConexion = cadenaConexionA;
+            idUsuario = idUsuarioA;
+
+            usuarios = GetAllUsuarios();
+            Usuario usuario = new Usuario();
+            Usuario usuarioActivo = new Usuario();
+
+
+            for (int i = 0; i < usuarios.Count(); i++)
+            {
+                usuario = usuarios[i];
+                if (usuario.ID1 == idUsuario)
+                {
+                    usuarioActivo = usuarios[i];
+                    break;
+                }
+            }
+
+
+            
+
 
             Libro libro = new Libro();
-            
-            
+            Libro libroSeleccionado = new Libro();
+
             for (int i = 0; i < libros.Count(); i++)
             {
                 libro = libros[i];
-                
-  
+                if (libro.Titulo1.Equals(nombre))
+                {
+                    libroSeleccionado = libro;
+                    break;
+                }
             }
 
-            
-            autores = GetAllAutor();
-            
+            librosUsuario = GetAllMisLibros();
+
+            EstadoLibro libroUsuario = new EstadoLibro();
+
+            Boolean libroObtenido = false;
+
+            for (int i = 0; i < librosUsuario.Count(); i++)
+            {
+                libroUsuario = librosUsuario[i];
+                
+                if (libroUsuario.ID_Usuario1 == usuarioActivo.ID1 && libroUsuario.ID_Libro1 == libroSeleccionado.ID1)
+                {
+                    libroObtenido = true;
+                    break;
+                }
+            }
+
+            if(libroObtenido != false)
+            {
+                btnFavorito.Visible = false;
+                btnNoFavorito.Visible = true;
+            }
+
+            autores = GetAllAutor();    
 
             string idAutor = libro.Autor1.ToString();
 
@@ -45,8 +93,6 @@ namespace YBOOK
             for (int i = 0; i < autores.Count(); i++)
             {
                 autor = autores[i];
-                MessageBox.Show(autor.ID1.ToString());
-
 
                 if (idAutor.Equals(autor.ID1.ToString()))
                 {
@@ -55,13 +101,13 @@ namespace YBOOK
             }
     
             
-            txtTitulo.Text = libro.Titulo1;
+            txtTitulo.Text = libroSeleccionado.Titulo1;
             txtAutor.Text = autor.Nombre1; //Se llama a la clase autor para obtener el nombre de la consulta realizada en este docuemnto
-            txtIdioma.Text = libro.Idioma1;
-            txtEditorial.Text = libro.Editorial1;
-            txtCategoria.Text = libro.Categoria1;
-            txtFechaPublicacion.Text = libro.FechaPublicacion1.ToString();
-            txtNumeroPaginas.Text = libro.NumeroPaginas1.ToString();
+            txtIdioma.Text = libroSeleccionado.Idioma1;
+            txtEditorial.Text = libroSeleccionado.Editorial1;
+            txtCategoria.Text = libroSeleccionado.Categoria1;
+            txtFechaPublicacion.Text = libroSeleccionado.FechaPublicacion1.ToString();
+            txtNumeroPaginas.Text = libroSeleccionado.NumeroPaginas1.ToString();
 
         }
 
@@ -77,6 +123,22 @@ namespace YBOOK
             using (IDbConnection db = new SqlConnection(cadenaConexion))
             {
                 return (List<Autor>)db.GetAll<Autor>();
+            }
+        }
+
+        public List<Usuario> GetAllUsuarios()
+        {
+            using (IDbConnection db = new SqlConnection(cadenaConexion))
+            {
+                return (List<Usuario>)db.GetAll<Usuario>();
+            }
+        }
+
+        public List<EstadoLibro> GetAllMisLibros()
+        {
+            using (IDbConnection db = new SqlConnection(cadenaConexion))
+            {
+                return (List<EstadoLibro>)db.GetAll<EstadoLibro>();
             }
         }
     }

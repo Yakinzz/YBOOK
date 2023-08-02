@@ -16,17 +16,19 @@ namespace YBOOK
     {
         public static string cadenaConexion = null;
         List<Libro> libros = new List<Libro>();
+        int idUsuario;
 
-        public Biblioteca(string cadenaConexionA)
+        public Biblioteca(string cadenaConexionA,int idUsuarioA)
         {
             InitializeComponent();
             
             cadenaConexion = cadenaConexionA;
+            idUsuario = idUsuarioA;
             libros = GetAllLibros();
 
             // Configurar el FlowLayoutPanel
             flowLayoutPanel1.FlowDirection = FlowDirection.TopDown; // Los elementos se agregan de arriba hacia abajo.
-            flowLayoutPanel1.WrapContents = false; // Los elementos no se envuelven a la siguiente línea.
+            flowLayoutPanel1.WrapContents = true; // Los elementos no se envuelven a la siguiente línea.
             flowLayoutPanel1.AutoScroll = true; // Habilitar desplazamiento automático si se exceden las dimensiones del panel.
 
             CargarElementosEnFlowLayoutPanel();
@@ -71,10 +73,8 @@ namespace YBOOK
         {
             Button botonClicado = (Button)sender;
             string nombre = botonClicado.Text;
-            InformacionLibro form = new InformacionLibro(nombre,libros,cadenaConexion);
+            InformacionLibro form = new InformacionLibro(nombre,libros,cadenaConexion,idUsuario);
             form.Show();
-
-            //MessageBox.Show($"Has hecho clic en el botón con texto: {nombre}");
         }
 
 

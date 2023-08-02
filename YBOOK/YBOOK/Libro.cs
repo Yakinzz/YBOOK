@@ -11,7 +11,7 @@ namespace YBOOK
     [Table("Libros")]
     public class Libro
     {
-        int ID;
+        int LibroID;
         string Titulo;
         int AutorID;
         string Idioma;
@@ -26,7 +26,7 @@ namespace YBOOK
         }
         public Libro(int iD, string titulo, int autor, string idioma, string editorial, string categoria, DateTime fechaPublicacion, int numeroPaginas)
         {
-            ID = iD;
+            LibroID = iD;
             Titulo = titulo;
             AutorID = autor;
             Idioma = idioma;
@@ -36,7 +36,7 @@ namespace YBOOK
             NumeroPaginas = numeroPaginas;
         }
 
-        [Key] public int ID1 { get => ID; set => ID = value; }
+        [Key] public int ID1 { get => LibroID; set => LibroID = value; }
         public string Titulo1 { get => Titulo; set => Titulo = value; }
         public int Autor1 { get => AutorID; set => AutorID = value; }
         public string Idioma1 { get => Idioma; set => Idioma = value; }

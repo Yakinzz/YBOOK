@@ -39,11 +39,7 @@ namespace YBOOK
         //Configuro la acción del botón para cambiar al formulario de Registro
         private void button1_Click(object sender, EventArgs e)
         {
-            listaUsuarios = GetAllUsuario();
-
-            Registro form = new Registro(listaUsuarios,cadenaConexion);
-            form.Show();
-            Hide();
+            
 
         }
 
@@ -68,7 +64,7 @@ namespace YBOOK
             
             if(usuarioVerificado != false)
             {
-                PaginaPrincipal form_PaginaPrincipal = new PaginaPrincipal(listaUsuarios,usuario.Username,cadenaConexion);
+                PaginaPrincipal form_PaginaPrincipal = new PaginaPrincipal(listaUsuarios,usuario.Username,cadenaConexion,usuario.ID1);
                 form_PaginaPrincipal.Show();
                 Hide();
             }
@@ -86,7 +82,14 @@ namespace YBOOK
             }
         }
 
-        
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            listaUsuarios = GetAllUsuario();
+
+            Registro form = new Registro(listaUsuarios, cadenaConexion);
+            form.Show();
+            Hide();
+        }
     }
     
 }

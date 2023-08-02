@@ -12,18 +12,21 @@ namespace YBOOK
         
         public static string cadenaConexion = null;
         string username = null;
-        public PaginaPrincipal(List<Usuario> usuarios,string username, string cadenaConexionA)
+        int id_usuario;
+        public PaginaPrincipal(List<Usuario> usuarios,string username, string cadenaConexionA, int id_usuarioA)
         {
             InitializeComponent();
             this.usuarios = usuarios;
             this.username = username;
             cadenaConexion = cadenaConexionA;
+            id_usuario = id_usuarioA;
+
 
             label_Username.Text = username;
 
             label_NombreSeccion.Text = "BIBLIOTECA";
             this.panelLoader.Controls.Clear();
-            Biblioteca formBiblioteca = new Biblioteca(cadenaConexion)
+            Biblioteca formBiblioteca = new Biblioteca(cadenaConexion,id_usuario)
             {
                 Dock = DockStyle.Fill,
                 TopLevel = false,
@@ -33,7 +36,7 @@ namespace YBOOK
             this.panelLoader.Controls.Add(formBiblioteca);
             formBiblioteca.Show();
             btnLibros.Focus();
-
+            this.id_usuario = id_usuario;
         }
 
         private void btn_Cerrar_Click(object sender, System.EventArgs e)
@@ -48,7 +51,7 @@ namespace YBOOK
         {
             label_NombreSeccion.Text = "BIBLIOTECA";
             this.panelLoader.Controls.Clear();
-            Biblioteca formBiblioteca = new Biblioteca(cadenaConexion)
+            Biblioteca formBiblioteca = new Biblioteca(cadenaConexion,id_usuario)
             {
                 Dock = DockStyle.Fill, TopLevel = false, TopMost = true
             };
