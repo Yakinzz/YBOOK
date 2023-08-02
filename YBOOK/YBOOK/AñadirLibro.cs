@@ -15,6 +15,7 @@ namespace YBOOK
         public AñadirLibro()
         {
             InitializeComponent();
+
         }
     }
 }

@@ -10,7 +10,7 @@ namespace YBOOK
     [Table("Autores")]
     public class Autor
     {
-        int ID;
+        int AutorID;
         string Nombre;
         string Apellidos;
         string Nacionalidad;
@@ -23,9 +23,9 @@ namespace YBOOK
             
         }
 
-        public Autor(int iD, string nombre, string apellidos, string nacionalidad, string fechaNacimiento, string fechaDefuncion)
+        public Autor(int AutoriD, string nombre, string apellidos, string nacionalidad, string fechaNacimiento, string fechaDefuncion)
         {
-            ID = iD;
+            AutorID = AutoriD;
             Nombre = nombre;
             Nacionalidad = nacionalidad;
             FechaNacimiento = fechaNacimiento;
@@ -33,7 +33,7 @@ namespace YBOOK
             Apellidos = apellidos;
         }
 
-        [Key] public int ID1 { get => ID; set => ID = value; }
+        [Key] public int ID1 { get => AutorID; set => AutorID = value; }
         public string Nombre1 { get => Nombre; set => Nombre = value; }
         public string Nacionalidad1 { get => Nacionalidad; set => Nacionalidad = value; }
         public string FechaNacimiento1 { get => FechaNacimiento; set => FechaNacimiento = value; }

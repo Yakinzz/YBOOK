@@ -18,11 +18,11 @@ namespace YBOOK
         List<Libro> libros = new List<Libro>();
         List<Autor> autores = new List<Autor>();
         public static string cadenaConexion = null;
-        public InformacionLibro(string nombre, List<Libro> libros, string cadenaConexionA)
+        public InformacionLibro(string nombre, List<Libro> librosA, string cadenaConexionA)
         {
             InitializeComponent();
             this.nombre = nombre;
-            this.libros = libros;
+            libros = librosA;
             cadenaConexion = cadenaConexionA;
 
             Libro libro = new Libro();
@@ -31,6 +31,7 @@ namespace YBOOK
             for (int i = 0; i < libros.Count(); i++)
             {
                 libro = libros[i];
+                
   
             }
 
@@ -38,22 +39,24 @@ namespace YBOOK
             autores = GetAllAutor();
             
 
-            int idAutor = libro.Autor1;
+            string idAutor = libro.Autor1.ToString();
+
             Autor autor = new Autor();
             for (int i = 0; i < autores.Count(); i++)
             {
-                if(idAutor == autores[i].ID1)
+                autor = autores[i];
+                MessageBox.Show(autor.ID1.ToString());
+
+
+                if (idAutor.Equals(autor.ID1.ToString()))
                 {
-                    autor = autores[i];
-                    
+                    break;
                 }
             }
-            MessageBox.Show(autor.FechaNacimiento1);
-
-            txtAutor.Text = autor.Nombre1;
-
+    
             
             txtTitulo.Text = libro.Titulo1;
+            txtAutor.Text = autor.Nombre1; //Se llama a la clase autor para obtener el nombre de la consulta realizada en este docuemnto
             txtIdioma.Text = libro.Idioma1;
             txtEditorial.Text = libro.Editorial1;
             txtCategoria.Text = libro.Categoria1;

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -8,6 +9,7 @@ namespace YBOOK
     public partial class PaginaPrincipal : Form
     {
         List<Usuario> usuarios = new List<Usuario>();
+        
         public static string cadenaConexion = null;
         string username = null;
         public PaginaPrincipal(List<Usuario> usuarios,string username, string cadenaConexionA)
