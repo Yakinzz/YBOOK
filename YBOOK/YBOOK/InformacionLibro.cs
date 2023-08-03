@@ -1,4 +1,5 @@
-﻿using Dapper.Contrib.Extensions;
+﻿using Dapper;
+using Dapper.Contrib.Extensions;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -21,6 +22,7 @@ namespace YBOOK
         List<EstadoLibro> librosUsuario = new List<EstadoLibro>();
         public static string cadenaConexion = null;
         int idUsuario;
+        EstadoLibro libroUsuario = new EstadoLibro();
 
         public InformacionLibro(string nombre, List<Libro> librosA, string cadenaConexionA,int idUsuarioA)
         {
@@ -64,10 +66,10 @@ namespace YBOOK
 
             librosUsuario = GetAllMisLibros();
 
-            EstadoLibro libroUsuario = new EstadoLibro();
+            
 
             Boolean libroObtenido = false;
-
+            
             for (int i = 0; i < librosUsuario.Count(); i++)
             {
                 libroUsuario = librosUsuario[i];
@@ -84,6 +86,9 @@ namespace YBOOK
                 btnFavorito.Visible = false;
                 btnNoFavorito.Visible = true;
             }
+
+            
+
 
             autores = GetAllAutor();    
 
@@ -116,7 +121,38 @@ namespace YBOOK
             this.Close();
         }
 
+        private void btnNoFavorito_Click(object sender, EventArgs e)
+        {
+            BorrarDeMisLibros(libroUsuario);
+            btnFavorito.Visible = true;
+            btnNoFavorito.Visible = false;
+            MessageBox.Show("Se ha eliminado el libro de tu biblioteca");
+        }
+        private void btnFavorito_Click(object sender, EventArgs e)
+        {
+            AddAMisLibros(libroUsuario);
+            btnFavorito.Visible = false;
+            btnNoFavorito.Visible = true;
+            MessageBox.Show("Se añadió el libro a tu biblioteca");
+        }
 
+        private static void BorrarDeMisLibros(EstadoLibro estadolibro)
+        {
+            using(IDbConnection db = new SqlConnection(cadenaConexion))
+            {
+                var consulta = $@"DELETE MisLibros WHERE ID="+estadolibro.ID1+"";
+                db.Execute(consulta, estadolibro);
+            }
+        }
+        private static void AddAMisLibros(EstadoLibro nuevoMiLibro)
+        {
+            
+            using (IDbConnection db = new SqlConnection(cadenaConexion))
+            {
+                var consulta = $@"INSERT INTO MisLibros (ID_Usuario,ID_Libro) VALUES (" + nuevoMiLibro.ID_Usuario1 + "," + nuevoMiLibro.ID_Libro1 + ")";
+                db.Execute(consulta, nuevoMiLibro);
+            }
+        }
 
         public List<Autor> GetAllAutor()
         {
@@ -141,5 +177,7 @@ namespace YBOOK
                 return (List<EstadoLibro>)db.GetAll<EstadoLibro>();
             }
         }
+
+       
     }
 }

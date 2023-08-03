@@ -18,20 +18,22 @@ namespace YBOOK
         List<Libro> libros = new List<Libro>();
         List<EstadoLibro> librosUsuario = new List<EstadoLibro>();
         int idUsuario;
-        string cadenaConexion=null;
+        string cadenaConexion = null;
         Usuario usuarioActivo = new Usuario();
-
-        public MisLibros(string cadenaConexionA,List<Usuario> usuarios, int idUsuario)
+        EstadoLibro libroUsuario = new EstadoLibro();
+        int progreso = 0;
+        int paginaActual = 0;
+        public MisLibros(string cadenaConexionA, List<Usuario> usuarios, int idUsuario)
         {
             InitializeComponent();
             cadenaConexion = cadenaConexionA;
             this.usuarios = usuarios;
             this.idUsuario = idUsuario;
-            dataGridView1.ReadOnly = true;
-
-           
-            Usuario usuario = new Usuario();
             
+
+
+            Usuario usuario = new Usuario();
+
 
             for (int i = 0; i < usuarios.Count(); i++)
             {
@@ -46,19 +48,20 @@ namespace YBOOK
             librosUsuario = GetAllMisLibros();
             libros = GetAllLibros();
 
-            EstadoLibro libroUsuario = new EstadoLibro();
+            
+
+            List<string> listdelibros = new List<string>();
 
             string nombreLibro = null;
+            
 
             for (int i = 0; i < librosUsuario.Count(); i++)
             {
                 libroUsuario = librosUsuario[i];
-                
+
 
                 if (libroUsuario.ID_Usuario1 == usuarioActivo.ID1)
                 {
-                    
-
                     Libro libro = new Libro();
 
                     for (int j = 0; j < libros.Count(); j++)
@@ -66,23 +69,23 @@ namespace YBOOK
                         libro = libros[j];
                         if (libro.ID1.Equals(libroUsuario.ID_Libro1))
                         {
-                            nombreLibro = libro.Titulo1;
-                            double progreso = 0;
+                            listdelibros.Add(libro.Titulo1);
                             progreso = (libroUsuario.NumeroPaginaActual1 * 100) / libro.NumeroPaginas1;
-                            dataGridView1.Rows.Add(nombreLibro,libroUsuario.Estado1,progreso);
-                            
                             break;
                         }
                     }
-                    
+
                 }
             }
 
-            if (dataGridView1.Rows.Count > 0)
-            {
-                dataGridView1.Rows[0].Selected = true;
+            listBox1.DataSource=listdelibros;
 
-                string libroSeleccionado = dataGridView1.SelectedCells[0].Value.ToString();
+
+
+            
+            if (listBox1.Items.Count > 0)
+            {
+                string libroSeleccionado = listBox1.SelectedItem.ToString();
 
                 Libro libro = new Libro();
                 Libro libroActual = new Libro();
@@ -97,7 +100,7 @@ namespace YBOOK
                 }
 
                 string estadoLibro = null;
-
+                int paginaActual = 0;
 
                 EstadoLibro libroUsuarioo = new EstadoLibro();
                 for (int i = 0; i < librosUsuario.Count(); i++)
@@ -107,7 +110,7 @@ namespace YBOOK
                     if (libroUsuarioo.ID_Usuario1 == usuarioActivo.ID1 && libroUsuarioo.ID_Libro1 == libroActual.ID1)
                     {
                         estadoLibro = libroUsuarioo.Estado1;
-                        paginaActual = libroUsuario.NumeroPaginaActual1;
+                        paginaActual = libroUsuarioo.NumeroPaginaActual1;
                         break;
                     }
                 }
@@ -116,29 +119,35 @@ namespace YBOOK
                 lb_Idioma.Text = libroActual.Idioma1;
                 lb_NumeroPaginas.Text = libroActual.NumeroPaginas1.ToString();
                 cb_Estado.Text = estadoLibro;
+                progressBar1.Value = progreso;
 
-                if (estadoLibro == "Leído" || estadoLibro == "Deseado")
+
+                if (estadoLibro == "Leyendo")
+                {
+                    label9.Show();
+                    numeric_PaginaActual.Show();
+                    numeric_PaginaActual.Value = paginaActual;
+                    progressBar1.Value = progreso;
+                    
+                }else if (estadoLibro == "Deseado")
                 {
                     numeric_PaginaActual.Hide();
                     label9.Hide();
+                    progressBar1.Hide();
+                    lb_progreso.Hide();
                 }
                 else
                 {
-                    numeric_PaginaActual.Show();
-                    label9.Show();
-                    numeric_PaginaActual.Value = paginaActual;
+                    numeric_PaginaActual.Hide();
+                    label9.Hide();
+                    progressBar1.Value = 100;
                 }
-
             }
-
-
-
-
         }
-        int paginaActual = 0;
-        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string libroSeleccionado = dataGridView1.SelectedCells[0].Value.ToString();
+            string libroSeleccionado = listBox1.SelectedItem.ToString();
 
             Libro libro = new Libro();
             Libro libroActual = new Libro();
@@ -147,7 +156,7 @@ namespace YBOOK
                 libro = libros[i];
                 if (libro.Titulo1.Equals(libroSeleccionado))
                 {
-                    libroActual=libro;
+                    libroActual = libro;
                     break;
                 }
             }
@@ -155,15 +164,15 @@ namespace YBOOK
             string estadoLibro = null;
             
 
-            EstadoLibro libroUsuario = new EstadoLibro();
+            EstadoLibro libroUsuarioo = new EstadoLibro();
             for (int i = 0; i < librosUsuario.Count(); i++)
             {
-                libroUsuario = librosUsuario[i];
+                libroUsuarioo = librosUsuario[i];
 
-                if (libroUsuario.ID_Usuario1 == usuarioActivo.ID1 && libroUsuario.ID_Libro1 == libroActual.ID1)
+                if (libroUsuarioo.ID_Usuario1 == usuarioActivo.ID1 && libroUsuarioo.ID_Libro1 == libroActual.ID1)
                 {
-                    estadoLibro = libroUsuario.Estado1;
-                    paginaActual = libroUsuario.NumeroPaginaActual1;
+                    estadoLibro = libroUsuarioo.Estado1;
+                    paginaActual = libroUsuarioo.NumeroPaginaActual1;
                     break;
                 }
             }
@@ -173,64 +182,80 @@ namespace YBOOK
             lb_NumeroPaginas.Text = libroActual.NumeroPaginas1.ToString();
             cb_Estado.Text = estadoLibro;
 
-            if(estadoLibro=="Leído" || estadoLibro=="Deseado")
+            if (estadoLibro == "Leyendo")
+            {
+                label9.Show();
+                numeric_PaginaActual.Show();
+                numeric_PaginaActual.Value = paginaActual;
+                progressBar1.Value = progreso;
+
+            }
+            else if (estadoLibro == "Deseado")
             {
                 numeric_PaginaActual.Hide();
                 label9.Hide();
+                progressBar1.Hide();
+                lb_progreso.Hide();
             }
             else
             {
-                numeric_PaginaActual.Show();
-                label9.Show();
-                numeric_PaginaActual.Value = paginaActual;
+                numeric_PaginaActual.Hide();
+                label9.Hide();
+                progressBar1.Value = 100;
             }
-            
         }
+
+
 
 
         public List<EstadoLibro> GetAllMisLibros()
-        {
-            using (IDbConnection db = new SqlConnection(cadenaConexion))
             {
-                return (List<EstadoLibro>)db.GetAll<EstadoLibro>();
+                using (IDbConnection db = new SqlConnection(cadenaConexion))
+                {
+                    return (List<EstadoLibro>)db.GetAll<EstadoLibro>();
+                }
             }
-        }
-        public List<Libro> GetAllLibros()
-        {
-            using (IDbConnection db = new SqlConnection(cadenaConexion))
+            public List<Libro> GetAllLibros()
             {
-                return (List<Libro>)db.GetAll<Libro>();
+                using (IDbConnection db = new SqlConnection(cadenaConexion))
+                {
+                    return (List<Libro>)db.GetAll<Libro>();
+                }
             }
-        }
+
+
+
+            private void cb_Estado_SelectedIndexChanged(object sender, EventArgs e)
+            { 
+                if (cb_Estado.Text == "Leyendo")
+                {
+                    label9.Show();
+                    numeric_PaginaActual.Show();
+                    numeric_PaginaActual.Value = paginaActual;
+                    progressBar1.Value = progreso;
+                }
+                else if (cb_Estado.Text == "Deseado")
+                {
+                    numeric_PaginaActual.Hide();
+                    label9.Hide();
+                    progressBar1.Hide();
+                    lb_progreso.Hide();
+                }
+                else
+                {
+                    numeric_PaginaActual.Hide();
+                    label9.Hide();
+                    lb_progreso.Show();
+                    progressBar1.Show();
+                    progressBar1.Value = 100;
+                
+                }
+            }
 
         
-
-        private void cb_Estado_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (cb_Estado.Text == "Leído" || cb_Estado.Text == "Deseado")
-            {
-                numeric_PaginaActual.Hide();
-                label9.Hide();
-            }
-            else
-            {
-                numeric_PaginaActual.Show();
-                label9.Show();
-                numeric_PaginaActual.Value = paginaActual;
-            }
-        }
-
-        private void SelectFirstColumnDefault()
-        {
-            // Primero, asegúrate de que el DataGridView no tenga ninguna celda seleccionada.
-            dataGridView1.ClearSelection();
-
-            // A continuación, verifica si hay alguna fila en el DataGridView.
-            if (dataGridView1.Rows.Count > 0)
-            {
-                // Selecciona la primera celda de la primera columna.
-                dataGridView1.Rows[0].Cells[0].Selected = true;
-            }
-        }
     }
+    
+
+        
+    
 }

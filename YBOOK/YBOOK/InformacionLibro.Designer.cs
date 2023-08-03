@@ -195,6 +195,7 @@
             this.btnFavorito.TabIndex = 29;
             this.btnFavorito.Text = "+";
             this.btnFavorito.UseVisualStyleBackColor = true;
+            this.btnFavorito.Click += new System.EventHandler(this.btnFavorito_Click);
             // 
             // btnNoFavorito
             // 
@@ -204,6 +205,7 @@
             this.btnNoFavorito.TabIndex = 30;
             this.btnNoFavorito.Text = "--";
             this.btnNoFavorito.UseVisualStyleBackColor = true;
+            this.btnNoFavorito.Click += new System.EventHandler(this.btnNoFavorito_Click);
             // 
             // InformacionLibro
             // 
