@@ -79,7 +79,7 @@ namespace YBOOK
         {
             label_NombreSeccion.Text = "VALORACIÓN";
             this.panelLoader.Controls.Clear();
-            Valoracion formValoracion = new Valoracion()
+            Valoracion formValoracion = new Valoracion(cadenaConexion, id_usuario)
             {
                 Dock = DockStyle.Fill,
                 TopLevel = false,

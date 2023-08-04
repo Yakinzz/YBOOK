@@ -140,6 +140,7 @@
     <Compile Include="Valoracion.Designer.cs">
       <DependentUpon>Valoracion.cs</DependentUpon>
     </Compile>
+    <Compile Include="Valoraciones.cs" />
     <EmbeddedResource Include="AñadirLibro.resx">
       <DependentUpon>AñadirLibro.cs</DependentUpon>
     </EmbeddedResource>
