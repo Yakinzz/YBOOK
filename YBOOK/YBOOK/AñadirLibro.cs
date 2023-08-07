@@ -18,11 +18,13 @@ namespace YBOOK
         public static string cadenaConexion = null;
         List<Libro> listlibros = new List<Libro>();
         List<Autor> listautores = new List<Autor>();
-        public AñadirLibro(string cadenaConexionA)
+        int idUsuario;
+        public AñadirLibro(string cadenaConexionA,int id_Usuario)
         {
             InitializeComponent();
 
             cadenaConexion = cadenaConexionA;
+            idUsuario = id_Usuario;
             listlibros = GetAllLibros();
 
             //Para llenar el combo box con todos los autores
@@ -33,15 +35,15 @@ namespace YBOOK
                 autor = listautores[i];
                 cb_Autor.Items.Add(autor.Nombre1 + "_" + autor.Apellidos1);
             }
-
-
         }
 
         private void btn_AñadirLibro_Click(object sender, EventArgs e)
         {
 
             Libro libro = new Libro();
+            
             Boolean libroRegistrado = false;
+            Boolean valido = false;
             for (int i = 0; i < listlibros.Count(); i++)
             {
                 libro = listlibros[i];
@@ -52,21 +54,48 @@ namespace YBOOK
                 }
             }
 
+            Libro nuevoLibro = new Libro();
             if (libroRegistrado == false)
             {
                 if (!String.IsNullOrEmpty(txt_Titulo.Text))
                 {
+                    nuevoLibro.Titulo1=txt_Titulo.Text;
+
                     if (!(cb_Autor.Text == ""))
                     {
+                        Autor autor = new Autor();
+                        string nombre=null;
+                        string apellidos=null;
+                        for (int i = 0; i < listautores.Count(); i++)
+                        {
+                            autor = listautores[i];
+                            nombre = cb_Autor.Text.Split('_')[0];
+                            apellidos = cb_Autor.Text.Split('_')[1];
+                            if(autor.Nombre1.Equals(nombre) && autor.Apellidos1.Equals(apellidos))
+                            {
+                                nuevoLibro.Autor1 = autor.ID1;
+                                break;
+                            }
+                        }
+
                         if (!cb_Idioma.Text.Equals(""))
                         {
+                            nuevoLibro.Idioma1 = cb_Idioma.Text;
+
                             if (!txt_Editorial.Text.Equals(""))
                             {
+                                nuevoLibro.Editorial1 = txt_Editorial.Text;
+
                                 if (!cb_Categoria.Text.Equals(""))
                                 {
-                                    if (!Numero_Páginas.Value.Equals(""))
+                                    nuevoLibro.Categoria1 = cb_Categoria.Text;
+                                    if (Numero_Páginas.Value != 0)
                                     {
-
+                                        nuevoLibro.NumeroPaginas1 = (int)Numero_Páginas.Value;
+                                        DateTime fecha = fecha_Publicacion.Value.Date;
+                                        MessageBox.Show(fecha.ToString());
+                                        nuevoLibro.FechaPublicacion1=fecha;
+                                        valido = true;
                                     }
                                     else
                                     {
@@ -104,6 +133,14 @@ namespace YBOOK
                 MessageBox.Show("Este libro ya está registrado con ese nombre.");
             }
 
+
+            //Compruebo que el libro haya pasado todas la validaciones
+            if (valido == true)
+            {
+                AddAMisLibros(nuevoLibro, idUsuario);
+                MessageBox.Show("El libro " + libro.Titulo1 + " se ha agregado correctamente.");
+            }
+
         }
 
         private static void AddAMisLibros(Libro nuevoMiLibro, int idUsuario)
@@ -111,7 +148,7 @@ namespace YBOOK
 
             using (IDbConnection db = new SqlConnection(cadenaConexion))
             {
-                var consulta = $@"INSERT INTO Libros (Titulo,AutorID,Idioma,Editorial,Categoria,FechaPublicacion,NumeroPaginas) VALUES (" + idUsuario + "," + nuevoMiLibro.ID1 + ")";
+                var consulta = $@"INSERT INTO Libros (Titulo,AutorID,Idioma,Editorial,Categoria,FechaPublicacion,NumeroPaginas) VALUES ('" + nuevoMiLibro.Titulo1 + "'," + nuevoMiLibro.Autor1 + ",'" + nuevoMiLibro.Idioma1 + "','"+ nuevoMiLibro.Editorial1 +"','"+ nuevoMiLibro.Categoria1 +"',"+ nuevoMiLibro.FechaPublicacion1 +","+ nuevoMiLibro.NumeroPaginas1+")";
                 db.Execute(consulta, nuevoMiLibro);
             }
         }

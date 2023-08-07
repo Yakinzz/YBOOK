@@ -110,12 +110,14 @@
             // 
             // fecha_Publicacion
             // 
+            this.fecha_Publicacion.Checked = false;
             this.fecha_Publicacion.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fecha_Publicacion.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.fecha_Publicacion.Location = new System.Drawing.Point(717, 399);
             this.fecha_Publicacion.Name = "fecha_Publicacion";
             this.fecha_Publicacion.Size = new System.Drawing.Size(125, 25);
             this.fecha_Publicacion.TabIndex = 6;
+            this.fecha_Publicacion.Value = new System.DateTime(1999, 1, 1, 0, 0, 0, 0);
             // 
             // label7
             // 
