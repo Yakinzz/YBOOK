@@ -18,6 +18,8 @@ namespace YBOOK
         List<Valoraciones> listvaloraciones = new List<Valoraciones>();
         List<Usuario> listusuarios = new List<Usuario>();
         List<Libro> listlibros = new List<Libro>();
+        List<Autor> autores = new List<Autor>();
+        List<EstadoLibro> listEstadoslibros = new List<EstadoLibro>();
         int idUsuario = 0;
         string nombreLibroSeleccionado = null;
         
@@ -32,21 +34,34 @@ namespace YBOOK
             listvaloraciones = GetAllValoraciones();
             listusuarios = GetAllUsuarios();
             listlibros = GetAllLibros();
+            listEstadoslibros = GetAllEstadoLibros();
 
 
             //Se cargan todos los libros en el combobox----------------------------------------------
+
             Libro libro = new Libro();
-            for (int i = 0; i < listlibros.Count(); i++)
+            EstadoLibro misLibros = new EstadoLibro();
+
+            for (int j = 0; j < listEstadoslibros.Count(); j++)
             {
-                libro = listlibros[i];
-                cb_libros.Items.Add(libro.Titulo1);
+                misLibros = listEstadoslibros[j];
+                for (int i = 0; i < listlibros.Count(); i++)
+                {
+                    libro = listlibros[i];
+                    if (misLibros.ID_Libro1 == libro.ID1)
+                    {
+                        cb_libros.Items.Add(libro.Titulo1);
+                    }
+                    
+                }
             }
+            
 
 
             //Si tiene algún elemento el combobox, selecciono el primero-------------------------
-            if(cb_libros.Items.Count > 0)
+            if(cb_libros.Items.Count == 0)
             {
-                cb_libros.SelectedIndex = 0;
+                MessageBox.Show("No tienes libros añadidos para valorar.");
             }
             else
             {
@@ -61,6 +76,11 @@ namespace YBOOK
         }
         private void cb_libros_SelectedIndexChanged(object sender, EventArgs e)
         {
+            txtLibro.Text = "";
+            tb_Puntuacion.Value=0;
+            txtLibro.Text = "";
+            txtComentario.Text = "";
+
             Libro libro = new Libro();
             int idLibroSeleccionado = 0;
             for (int i = 0; i < listlibros.Count(); i++)
@@ -78,16 +98,11 @@ namespace YBOOK
             for (int i = 0; i < listvaloraciones.Count(); i++)
             {
                 v = listvaloraciones[i];
-                
-                MessageBox.Show(v.ID_Libro1.ToString() +" -- "+ v.ID_Usuario1);
-                    if(idLibroSeleccionado==v.ID_Libro1 && idUsuario == v.ID_Usuario1)
-                    {
-
-                        encontrado = true;
-                        MessageBox.Show("Encontrado");
-                        break;
-                    }
-                
+                if(idLibroSeleccionado==v.ID_Libro1 && idUsuario == v.ID_Usuario1)
+                {
+                    encontrado = true;                     
+                    break;
+                }      
             }
 
             if (encontrado != false)
@@ -95,18 +110,46 @@ namespace YBOOK
                 btn_Cancelar.Visible=false;
                 btn_AddValoracion.Visible=false;
                 btn_EliminarValoracion.Visible = true;
+                
                 //Libro
                 lbLibro.Visible=true;
                 txtLibro.Visible = true;
                 txtLibro.Text=cb_libros.Text;
+                /*Más información del libro*/
+                txtEditorial.Text = libro.Editorial1;
+                txtCategoria.Text = libro.Categoria1;
+                txtIdioma.Text = libro.Idioma1;
+
+
                 //Puntuacion
                 lbPuntuacion.Visible = true;
-                txtPuntuacion.Visible = true;
-                txtPuntuacion.Text = v.Puntucion1.ToString();
+                tb_Puntuacion.Visible = true;
+                tb_Puntuacion.Value = v.Puntucion1;
+
+
                 //Comentario
                 lbComentario.Visible = true;
                 txtComentario.Visible = true;
                 txtComentario.Text = v.Comentario1;
+
+
+                //Autor
+                autores = GetAllAutores();
+
+                Autor a = new Autor();
+                for (int i = 0; i < autores.Count(); i++)
+                {
+                    a = autores[i];
+                    if (a.ID1 == libro.Autor1)
+                    {
+                        txtNombreAutor.Text = a.Nombre1;
+                        txtApellidos.Text = a.Apellidos1;
+                        txtNacionalidad.Text = a.Nacionalidad1;
+                        break;
+                    }
+                }
+
+
             }
             else
             {
@@ -114,14 +157,22 @@ namespace YBOOK
                 btn_AddValoracion.Visible = true;
                 btn_EliminarValoracion.Visible = false;
             }
-
         }
+
+        
 
         public List<Valoraciones> GetAllValoraciones()
         {
             using (IDbConnection db = new SqlConnection(cadenaConexion))
             {
                 return (List<Valoraciones>)db.GetAll<Valoraciones>();
+            }
+        }
+        public List<EstadoLibro> GetAllEstadoLibros()
+        {
+            using (IDbConnection db = new SqlConnection(cadenaConexion))
+            {
+                return (List<EstadoLibro>)db.GetAll<EstadoLibro>();
             }
         }
         public List<Usuario> GetAllUsuarios()
@@ -139,6 +190,14 @@ namespace YBOOK
             }
         }
 
-        
+        public List<Autor> GetAllAutores()
+        {
+            using (IDbConnection db = new SqlConnection(cadenaConexion))
+            {
+                return (List<Autor>)db.GetAll<Autor>();
+            }
+        }
+
+
     }
 }

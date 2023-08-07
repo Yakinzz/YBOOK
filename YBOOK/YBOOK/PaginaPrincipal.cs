@@ -96,7 +96,7 @@ namespace YBOOK
         {
             label_NombreSeccion.Text = "AÑADIR NUEVO LIBRO";
             this.panelLoader.Controls.Clear();
-            AñadirLibro formNuevoLibro = new AñadirLibro()
+            AñadirLibro formNuevoLibro = new AñadirLibro(cadenaConexion)
             {
                 Dock = DockStyle.Fill,
                 TopLevel = false,

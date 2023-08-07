@@ -23,7 +23,9 @@ namespace YBOOK
         public static string cadenaConexion = null;
         int idUsuario;
         EstadoLibro libroUsuario = new EstadoLibro();
-
+        Usuario usuario = new Usuario();
+        Usuario usuarioActivo = new Usuario();
+        Libro libroSeleccionado = new Libro();
         public InformacionLibro(string nombre, List<Libro> librosA, string cadenaConexionA,int idUsuarioA)
         {
             InitializeComponent();
@@ -33,8 +35,7 @@ namespace YBOOK
             idUsuario = idUsuarioA;
 
             usuarios = GetAllUsuarios();
-            Usuario usuario = new Usuario();
-            Usuario usuarioActivo = new Usuario();
+            
 
 
             for (int i = 0; i < usuarios.Count(); i++)
@@ -52,7 +53,7 @@ namespace YBOOK
 
 
             Libro libro = new Libro();
-            Libro libroSeleccionado = new Libro();
+            
 
             for (int i = 0; i < libros.Count(); i++)
             {
@@ -85,6 +86,11 @@ namespace YBOOK
             {
                 btnFavorito.Visible = false;
                 btnNoFavorito.Visible = true;
+            }
+            else
+            {
+                btnFavorito.Visible = true;
+                btnNoFavorito.Visible = false;
             }
 
             
@@ -130,7 +136,7 @@ namespace YBOOK
         }
         private void btnFavorito_Click(object sender, EventArgs e)
         {
-            AddAMisLibros(libroUsuario);
+            AddAMisLibros(libroSeleccionado,usuarioActivo.ID1);
             btnFavorito.Visible = false;
             btnNoFavorito.Visible = true;
             MessageBox.Show("Se añadió el libro a tu biblioteca");
@@ -144,12 +150,12 @@ namespace YBOOK
                 db.Execute(consulta, estadolibro);
             }
         }
-        private static void AddAMisLibros(EstadoLibro nuevoMiLibro)
+        private static void AddAMisLibros(Libro nuevoMiLibro,int idUsuario)
         {
             
             using (IDbConnection db = new SqlConnection(cadenaConexion))
             {
-                var consulta = $@"INSERT INTO MisLibros (ID_Usuario,ID_Libro) VALUES (" + nuevoMiLibro.ID_Usuario1 + "," + nuevoMiLibro.ID_Libro1 + ")";
+                var consulta = $@"INSERT INTO MisLibros (ID_Usuario,ID_Libro) VALUES (" + idUsuario + "," + nuevoMiLibro.ID1 + ")";
                 db.Execute(consulta, nuevoMiLibro);
             }
         }
