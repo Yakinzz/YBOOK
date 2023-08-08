@@ -36,7 +36,7 @@ namespace YBOOK
             this.panelLoader.Controls.Add(formBiblioteca);
             formBiblioteca.Show();
             btnLibros.Focus();
-            this.id_usuario = id_usuario;
+  
         }
 
         private void btn_Cerrar_Click(object sender, System.EventArgs e)
@@ -109,6 +109,18 @@ namespace YBOOK
 
         private void btnEditarPerfil_Click(object sender, EventArgs e)
         {
+            
+        }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            Form_Inicial form = new Form_Inicial();
+            form.Show();
+            Hide();
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
             label_NombreSeccion.Text = "EDITAR PERFIL";
             this.panelLoader.Controls.Clear();
             EditarPerfil formEditarPeril = new EditarPerfil()
@@ -120,13 +132,6 @@ namespace YBOOK
             formEditarPeril.FormBorderStyle = FormBorderStyle.None;
             this.panelLoader.Controls.Add(formEditarPeril);
             formEditarPeril.Show();
-        }
-
-        private void btnLogout_Click(object sender, EventArgs e)
-        {
-            Form_Inicial form = new Form_Inicial();
-            form.Show();
-            Hide();
         }
     }
 

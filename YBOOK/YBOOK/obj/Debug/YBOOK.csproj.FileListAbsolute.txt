@@ -32,3 +32,4 @@ C:\Users\yagoa\Desktop\YBOOK\YBOOK\YBOOK\obj\Debug\YBOOK.Valoracion.resources
 C:\Users\yagoa\Desktop\YBOOK\YBOOK\YBOOK\bin\Debug\MaterialSkin.dll
 C:\Users\yagoa\Desktop\YBOOK\YBOOK\YBOOK\obj\Debug\YBOOK.InformacionLibro.resources
 C:\Users\yagoa\Desktop\YBOOK\YBOOK\YBOOK\obj\Debug\YBOOK.MasInformacionValoracion.resources
+C:\Users\yagoa\Desktop\YBOOK\YBOOK\YBOOK\obj\Debug\YBOOK.Admin.PaginaPrincipal_Admin.resources

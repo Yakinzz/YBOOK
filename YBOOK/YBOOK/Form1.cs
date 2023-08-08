@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using YBOOK.Admin;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 
@@ -36,17 +37,8 @@ namespace YBOOK
             this.Close();
             Application.Exit();
         }
-        //Configuro la acción del botón para cambiar al formulario de Registro
-        private void button1_Click(object sender, EventArgs e)
-        {
-            
 
-        }
-
-        
-        
-
-        private void btn_Entrar_Click(object sender, EventArgs e)
+        private void btn_LogIn_Click(object sender, EventArgs e)
         {
             listaUsuarios = GetAllUsuario();
             Boolean usuarioVerificado = false;
@@ -54,20 +46,59 @@ namespace YBOOK
             Usuario usuario = new Usuario();
             for (int i = 0; i < listaUsuarios.Count(); i++)
             {
-                    usuario = listaUsuarios[i];
+                usuario = listaUsuarios[i];
                 if (txtUsernameLogin.Text.Equals(usuario.Username) && txtPasswordLogin.Text.Equals(usuario.Password))
                 {
                     usuarioVerificado = true;
                     break;
                 }
             }
-            
-            if(usuarioVerificado != false)
+
+            if (usuarioVerificado != false)
             {
-                PaginaPrincipal form_PaginaPrincipal = new PaginaPrincipal(listaUsuarios,usuario.Username,cadenaConexion,usuario.ID1);
-                form_PaginaPrincipal.Show();
-                Hide();
+                Boolean admin = false;
+                List<Rol> roles = new List<Rol>();
+                roles = GetAllRoles();
+                Rol rol = new Rol();
+
+                for (int i = 0; i < roles.Count(); i++)
+                {
+                    rol = roles[i];
+                    if (rol.Name_Rol1.Equals("Admin") && rol.ID_Usuario1 == usuario.ID1)
+                    {
+                        admin = true;
+                        break;
+                    }
+                }
+
+                if (admin != false)
+                {
+                    PaginaPrincipal_Admin formAdmin = new PaginaPrincipal_Admin();
+                    formAdmin.Show();
+                    Hide();
+                }
+                else
+                {
+                    PaginaPrincipal form_PaginaPrincipal = new PaginaPrincipal(listaUsuarios, usuario.Username, cadenaConexion, usuario.ID1);
+                    form_PaginaPrincipal.Show();
+                    Hide();
+                }
             }
+        }
+
+        //Configuro la acción del botón para cambiar al formulario de Registro
+        private void button1_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+            listaUsuarios = GetAllUsuario();
+
+            Registro form = new Registro(listaUsuarios, cadenaConexion);
+            form.Show();
+            Hide();
         }
 
 
@@ -82,13 +113,36 @@ namespace YBOOK
             }
         }
 
-        private void button1_Click_1(object sender, EventArgs e)
+        
+        public List<Rol> GetAllRoles()
         {
-            listaUsuarios = GetAllUsuario();
+            using (IDbConnection db = new SqlConnection(cadenaConexion))
+            {
+                return (List<Rol>)db.GetAll<Rol>();
+            }
+        }
 
-            Registro form = new Registro(listaUsuarios, cadenaConexion);
-            form.Show();
-            Hide();
+        private void label2_MouseHover(object sender, EventArgs e)
+        {
+            label2.ForeColor=Color.RoyalBlue;
+        }
+
+        private void label2_MouseLeave(object sender, EventArgs e)
+        {
+            label2.ForeColor = Color.Black;
+        }
+
+        private void btn_LogIn_MouseHover(object sender, EventArgs e)
+        {
+            btn_LogIn.BackColor=Color.Black;
+            btn_LogIn.ForeColor=Color.White;
+            
+        }
+
+        private void btn_LogIn_MouseLeave(object sender, EventArgs e)
+        {
+            btn_LogIn.BackColor = Color.RoyalBlue;
+            btn_LogIn.ForeColor = Color.White;
         }
     }
     

@@ -74,50 +74,56 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Autor.cs" />
-    <Compile Include="AñadirLibro.cs">
+    <Compile Include="Admin\PaginaPrincipal_Admin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AñadirLibro.Designer.cs">
+    <Compile Include="Admin\PaginaPrincipal_Admin.Designer.cs">
+      <DependentUpon>PaginaPrincipal_Admin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Class\Autor.cs" />
+    <Compile Include="User\AñadirLibro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User\AñadirLibro.Designer.cs">
       <DependentUpon>AñadirLibro.cs</DependentUpon>
     </Compile>
-    <Compile Include="Biblioteca.cs">
+    <Compile Include="User\Biblioteca.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Biblioteca.Designer.cs">
+    <Compile Include="User\Biblioteca.Designer.cs">
       <DependentUpon>Biblioteca.cs</DependentUpon>
     </Compile>
-    <Compile Include="CustomUI.cs" />
-    <Compile Include="EditarPerfil.cs">
+    <Compile Include="Class\CustomUI.cs" />
+    <Compile Include="User\EditarPerfil.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="EditarPerfil.Designer.cs">
+    <Compile Include="User\EditarPerfil.Designer.cs">
       <DependentUpon>EditarPerfil.cs</DependentUpon>
     </Compile>
-    <Compile Include="EstadoLibro.cs" />
+    <Compile Include="Class\EstadoLibro.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="InformacionLibro.cs">
+    <Compile Include="User\InformacionLibro.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="InformacionLibro.Designer.cs">
+    <Compile Include="User\InformacionLibro.Designer.cs">
       <DependentUpon>InformacionLibro.cs</DependentUpon>
     </Compile>
-    <Compile Include="Libro.cs" />
-    <Compile Include="MasInformacionValoracion.cs">
+    <Compile Include="Class\Libro.cs" />
+    <Compile Include="User\MasInformacionValoracion.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MasInformacionValoracion.Designer.cs">
+    <Compile Include="User\MasInformacionValoracion.Designer.cs">
       <DependentUpon>MasInformacionValoracion.cs</DependentUpon>
     </Compile>
-    <Compile Include="MisLibros.cs">
+    <Compile Include="User\MisLibros.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MisLibros.Designer.cs">
+    <Compile Include="User\MisLibros.Designer.cs">
       <DependentUpon>MisLibros.cs</DependentUpon>
     </Compile>
     <Compile Include="PaginaPrincipal.cs">
@@ -139,33 +145,37 @@
     <Compile Include="Registro.Designer.cs">
       <DependentUpon>Registro.cs</DependentUpon>
     </Compile>
-    <Compile Include="Usuario.cs" />
-    <Compile Include="Valoracion.cs">
+    <Compile Include="Class\Rol.cs" />
+    <Compile Include="Class\Usuario.cs" />
+    <Compile Include="User\Valoracion.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Valoracion.Designer.cs">
+    <Compile Include="User\Valoracion.Designer.cs">
       <DependentUpon>Valoracion.cs</DependentUpon>
     </Compile>
-    <Compile Include="Valoraciones.cs" />
-    <EmbeddedResource Include="AñadirLibro.resx">
+    <Compile Include="Class\Valoraciones.cs" />
+    <EmbeddedResource Include="Admin\PaginaPrincipal_Admin.resx">
+      <DependentUpon>PaginaPrincipal_Admin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User\AñadirLibro.resx">
       <DependentUpon>AñadirLibro.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Biblioteca.resx">
+    <EmbeddedResource Include="User\Biblioteca.resx">
       <DependentUpon>Biblioteca.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="EditarPerfil.resx">
+    <EmbeddedResource Include="User\EditarPerfil.resx">
       <DependentUpon>EditarPerfil.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="InformacionLibro.resx">
+    <EmbeddedResource Include="User\InformacionLibro.resx">
       <DependentUpon>InformacionLibro.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MasInformacionValoracion.resx">
+    <EmbeddedResource Include="User\MasInformacionValoracion.resx">
       <DependentUpon>MasInformacionValoracion.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MisLibros.resx">
+    <EmbeddedResource Include="User\MisLibros.resx">
       <DependentUpon>MisLibros.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PaginaPrincipal.resx">
@@ -179,7 +189,7 @@
     <EmbeddedResource Include="Registro.resx">
       <DependentUpon>Registro.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Valoracion.resx">
+    <EmbeddedResource Include="User\Valoracion.resx">
       <DependentUpon>Valoracion.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
@@ -273,6 +283,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\valoraciones.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fondoLogin.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fondoRegistro.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fondoBiblioteca.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fondoAddLibro.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

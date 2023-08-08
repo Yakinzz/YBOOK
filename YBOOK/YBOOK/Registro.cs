@@ -28,13 +28,10 @@ namespace YBOOK
             listaUsuarios = listaUsuarios2;
             cadenaConexion = cadenaConexionA;
 
-            toolTip1.SetToolTip(txtUsername, "El username debe de tener entre 3 y 15 caracteres, pudiendo usar el guión bajo y los numeros.");
-
-
         }
 
         //Configuro la acción del botón para cambiar al formulario de Login
-        private void button1_Click(object sender, EventArgs e)
+        private void label1_Click(object sender, EventArgs e)
         {
             Form_Inicial form = new Form_Inicial();
             form.Show();
@@ -56,7 +53,8 @@ namespace YBOOK
             }
         }
 
-        private void txtRegistrar_Click(object sender, EventArgs e)
+
+        private void btn_Register_Click(object sender, EventArgs e)
         {
             string errores = "";
             int contadorErrores = 0;
@@ -71,7 +69,7 @@ namespace YBOOK
                 errores = errores + "-Nombre no valido.\n";
                 contadorErrores++;
             }
-           
+
 
 
 
@@ -84,13 +82,13 @@ namespace YBOOK
                 contadorErrores++;
                 errores = errores + "-Email no valido.\n";
             }
-            
+
 
 
 
 
             //Valido que el usuario que haya puesto no esté registrado y si no lo está verifico que lo que se puso en la caja de texto está bien
-            
+
             Boolean usuarioEncontrado = false;
 
             Usuario usuario = new Usuario();
@@ -130,7 +128,7 @@ namespace YBOOK
                 contadorErrores++;
                 errores = errores + "-Contraseña no valida.\n";
             }
-            
+
 
 
 
@@ -142,12 +140,12 @@ namespace YBOOK
                 contadorErrores++;
                 errores = errores + "-Número teléfono no valido.\n";
             }
-           
 
 
 
 
-            
+
+
 
             //Valido que la fecha esté seleccionada
 
@@ -163,25 +161,11 @@ namespace YBOOK
                     connection.Execute(query_NuevoUsuario, usuario);
                 }
             }
-
-
         }
 
-        private void txtNombre_Leave(object sender, EventArgs e)
-        {
-            // Valido la caja de texto del nombre con una expresión regular
-            string rex_Nombre = @"^[a-zA-Z\s]+$";
-            if (Regex.IsMatch(txtNombre.Text, rex_Nombre))
-            {
-                panel8.BackColor = Color.LightGreen;
-            }
-            else
-            {
-                panel8.BackColor = Color.Red;
-            }
-        }
+        
 
-
+        
     }
 
         
