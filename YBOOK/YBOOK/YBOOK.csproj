@@ -94,6 +94,12 @@
       <DependentUpon>Biblioteca.cs</DependentUpon>
     </Compile>
     <Compile Include="Class\CustomUI.cs" />
+    <Compile Include="User\ConfirmacionEstado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User\ConfirmacionEstado.Designer.cs">
+      <DependentUpon>ConfirmacionEstado.cs</DependentUpon>
+    </Compile>
     <Compile Include="User\EditarPerfil.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -168,6 +174,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="User\Biblioteca.resx">
       <DependentUpon>Biblioteca.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User\ConfirmacionEstado.resx">
+      <DependentUpon>ConfirmacionEstado.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="User\EditarPerfil.resx">
       <DependentUpon>EditarPerfil.cs</DependentUpon>
@@ -312,6 +321,7 @@
     <Content Include="Resources\add_amislibros.png" />
     <Content Include="Resources\add_amislibroswhite.png" />
     <Content Include="Resources\eliminate.png" />
+    <Content Include="Resources\fondoEstado.jpg" />
     <Content Include="Resources\fondoInformacionLibro.jpg" />
     <Content Include="Resources\fondoMisLibros.jpg" />
     <Content Include="Resources\fondoValoracion.jpg" />

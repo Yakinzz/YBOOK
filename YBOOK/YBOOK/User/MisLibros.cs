@@ -205,12 +205,6 @@ namespace YBOOK
                 lb_progreso.Show();
                 progressBar1.Value = 100;
             }
-            else
-            {
-                numeric_PaginaActual.Hide();
-                label9.Hide();
-                progressBar1.Value = 100;
-            }
         }
 
 

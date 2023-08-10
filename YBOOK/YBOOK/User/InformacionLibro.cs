@@ -139,16 +139,18 @@ namespace YBOOK
             btnNoFavorito.Visible = false;
             lb_addmislibros.Visible = true;
             lb_eliminatemislibros.Visible = false;
-            MessageBox.Show("Se ha eliminado el libro de tu biblioteca");
+            MessageBox.Show("Se eliminó de tus libros");
         }
         private void btnFavorito_Click(object sender, EventArgs e)
         {
+            ConfirmacionEstado form = new ConfirmacionEstado(libroSeleccionado,cadenaConexion,usuarioActivo.ID1);
+            form.Show();
             AddAMisLibros(libroSeleccionado,usuarioActivo.ID1);
             btnFavorito.Visible = false;
             btnNoFavorito.Visible = true;
             lb_addmislibros.Visible = false;
             lb_eliminatemislibros.Visible = true;
-            MessageBox.Show("Se añadió el libro a tu biblioteca");
+            MessageBox.Show("Se añadió a tus libros");
         }
 
         private static void BorrarDeMisLibros(EstadoLibro estadolibro)
