@@ -109,7 +109,17 @@ namespace YBOOK
 
         private void btnEditarPerfil_Click(object sender, EventArgs e)
         {
-            
+            label_NombreSeccion.Text = "EDITAR PERFIL";
+            this.panelLoader.Controls.Clear();
+            EditarPerfil formEditarPerfil = new EditarPerfil()
+            {
+                Dock = DockStyle.Fill,
+                TopLevel = false,
+                TopMost = true
+            };
+            formEditarPerfil.FormBorderStyle = FormBorderStyle.None;
+            this.panelLoader.Controls.Add(formEditarPerfil);
+            formEditarPerfil.Show();
         }
 
         private void btnLogout_Click(object sender, EventArgs e)

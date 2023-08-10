@@ -29,6 +29,7 @@ namespace YBOOK
         public InformacionLibro(string nombre, List<Libro> librosA, string cadenaConexionA,int idUsuarioA)
         {
             InitializeComponent();
+            
             this.nombre = nombre;
             libros = librosA;
             cadenaConexion = cadenaConexionA;
@@ -86,11 +87,15 @@ namespace YBOOK
             {
                 btnFavorito.Visible = false;
                 btnNoFavorito.Visible = true;
+                lb_addmislibros.Visible = false;
+                lb_eliminatemislibros.Visible = true;
             }
             else
             {
                 btnFavorito.Visible = true;
                 btnNoFavorito.Visible = false;
+                lb_addmislibros.Visible = true;
+                lb_eliminatemislibros.Visible = false;
             }
 
             
@@ -132,6 +137,8 @@ namespace YBOOK
             BorrarDeMisLibros(libroUsuario);
             btnFavorito.Visible = true;
             btnNoFavorito.Visible = false;
+            lb_addmislibros.Visible = true;
+            lb_eliminatemislibros.Visible = false;
             MessageBox.Show("Se ha eliminado el libro de tu biblioteca");
         }
         private void btnFavorito_Click(object sender, EventArgs e)
@@ -139,6 +146,8 @@ namespace YBOOK
             AddAMisLibros(libroSeleccionado,usuarioActivo.ID1);
             btnFavorito.Visible = false;
             btnNoFavorito.Visible = true;
+            lb_addmislibros.Visible = false;
+            lb_eliminatemislibros.Visible = true;
             MessageBox.Show("Se añadió el libro a tu biblioteca");
         }
 
@@ -146,7 +155,7 @@ namespace YBOOK
         {
             using(IDbConnection db = new SqlConnection(cadenaConexion))
             {
-                var consulta = $@"DELETE MisLibros WHERE ID="+estadolibro.ID1+"";
+                var consulta = $@"DELETE MisLibros WHERE ID_Usuario="+estadolibro.ID_Usuario1+" AND ID_Libro="+estadolibro.ID_Libro1+"";
                 db.Execute(consulta, estadolibro);
             }
         }
@@ -184,6 +193,7 @@ namespace YBOOK
             }
         }
 
-       
+
+        
     }
 }

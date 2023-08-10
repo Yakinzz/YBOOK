@@ -23,8 +23,8 @@
         #region Código generado por el Diseñador de Windows Forms
 
         /// <summary>
-        /// Método necesario para admitir el Diseñador. No se puede modificar
-        /// el contenido de este método con el editor de código.
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
         {
@@ -33,14 +33,14 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.btn_LogIn = new System.Windows.Forms.Button();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.btn_Cerrar = new System.Windows.Forms.Button();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -71,7 +71,7 @@
             this.label2.Font = new System.Drawing.Font("Acephimere", 9.749998F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(716, 362);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(134, 16);
+            this.label2.Size = new System.Drawing.Size(135, 16);
             this.label2.TabIndex = 21;
             this.label2.Text = "Aún no tienes cuenta?";
             this.label2.Click += new System.EventHandler(this.label2_Click);
@@ -102,16 +102,6 @@
             this.btn_LogIn.Click += new System.EventHandler(this.btn_LogIn_Click);
             this.btn_LogIn.MouseLeave += new System.EventHandler(this.btn_LogIn_MouseLeave);
             this.btn_LogIn.MouseHover += new System.EventHandler(this.btn_LogIn_MouseHover);
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.BackgroundImage = global::YBOOK.Properties.Resources.fondoLogin;
-            this.pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox4.Location = new System.Drawing.Point(12, 12);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(540, 531);
-            this.pictureBox4.TabIndex = 22;
-            this.pictureBox4.TabStop = false;
             // 
             // btn_Cerrar
             // 
@@ -149,11 +139,21 @@
             this.pictureBox2.TabIndex = 5;
             this.pictureBox2.TabStop = false;
             // 
+            // pictureBox4
+            // 
+            this.pictureBox4.BackgroundImage = global::YBOOK.Properties.Resources.fondoLogin;
+            this.pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox4.Location = new System.Drawing.Point(12, 12);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(540, 531);
+            this.pictureBox4.TabIndex = 22;
+            this.pictureBox4.TabStop = false;
+            // 
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.BackgroundImage = global::YBOOK.Properties.Resources.Logo_Libro;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox1.Image = global::YBOOK.Properties.Resources.Logo_Libro;
             this.pictureBox1.Location = new System.Drawing.Point(658, 47);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(137, 114);
@@ -180,24 +180,25 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Form_Inicial";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
 
-        #endregion
+        private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.PictureBox pictureBox1;
+
+        #endregion
+
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Button btn_Cerrar;
         private System.Windows.Forms.TextBox txtUsernameLogin;
         private System.Windows.Forms.TextBox txtPasswordLogin;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btn_LogIn;
     }

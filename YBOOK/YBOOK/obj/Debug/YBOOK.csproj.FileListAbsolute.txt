@@ -2,7 +2,6 @@ C:\Users\yagoa\Desktop\YBOOK\YBOOK\YBOOK\bin\Debug\YBOOK.exe.config
 C:\Users\yagoa\Desktop\YBOOK\YBOOK\YBOOK\bin\Debug\YBOOK.exe
 C:\Users\yagoa\Desktop\YBOOK\YBOOK\YBOOK\bin\Debug\YBOOK.pdb
 C:\Users\yagoa\Desktop\YBOOK\YBOOK\YBOOK\obj\Debug\YBOOK.csproj.AssemblyReference.cache
-C:\Users\yagoa\Desktop\YBOOK\YBOOK\YBOOK\obj\Debug\YBOOK.csproj.SuggestedBindingRedirects.cache
 C:\Users\yagoa\Desktop\YBOOK\YBOOK\YBOOK\obj\Debug\YBOOK.Form_Inicial.resources
 C:\Users\yagoa\Desktop\YBOOK\YBOOK\YBOOK\obj\Debug\YBOOK.Properties.Resources.resources
 C:\Users\yagoa\Desktop\YBOOK\YBOOK\YBOOK\obj\Debug\YBOOK.csproj.GenerateResource.cache

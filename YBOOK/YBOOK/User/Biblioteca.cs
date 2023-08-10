@@ -58,7 +58,8 @@ namespace YBOOK
                 Button btn= new Button();
                 btn.Text = libro.Titulo1;
                 btn.Font = new System.Drawing.Font("Acephimere", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-                btn.ForeColor = System.Drawing.Color.Black;
+                btn.ForeColor = System.Drawing.Color.White;
+                btn.BackColor = System.Drawing.Color.RoyalBlue;
                 btn.FlatAppearance.BorderSize = 1;
                 btn.FlatAppearance.BorderColor=Color.White;
                 btn.Size = new System.Drawing.Size(180, 80);

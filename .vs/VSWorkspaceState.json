@@ -2,8 +2,9 @@
   "ExpandedNodes": [
     "",
     "\\YBOOK",
-    "\\YBOOK\\YBOOK"
+    "\\YBOOK\\YBOOK",
+    "\\YBOOK\\YBOOK\\User"
   ],
-  "SelectedNode": "\\YBOOK\\YBOOK\\Valoracion.cs",
+  "SelectedNode": "\\YBOOK\\YBOOK.sln",
   "PreviewInSolutionExplorer": false
 }

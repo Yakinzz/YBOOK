@@ -65,7 +65,7 @@ namespace YBOOK
             }
             else
             {
-                cb_libros.SelectedIndex = 1;
+                cb_libros.SelectedIndex = 0;
                 nombreLibroSeleccionado = cb_libros.SelectedItem.ToString();
             }
 
@@ -199,5 +199,6 @@ namespace YBOOK
         }
 
 
+        
     }
 }

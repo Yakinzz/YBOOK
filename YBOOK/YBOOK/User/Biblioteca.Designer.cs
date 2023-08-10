@@ -36,9 +36,9 @@
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.BackColor = System.Drawing.Color.Transparent;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(393, 12);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(693, 12);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(732, 688);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(432, 688);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
             // pictureBox1
@@ -47,7 +47,7 @@
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pictureBox1.Location = new System.Drawing.Point(35, 12);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(352, 688);
+            this.pictureBox1.Size = new System.Drawing.Size(652, 688);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
@@ -67,7 +67,6 @@
             this.Text = "Biblioteca";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
-
         }
 
         #endregion

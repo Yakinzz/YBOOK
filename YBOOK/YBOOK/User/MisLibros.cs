@@ -116,8 +116,8 @@ namespace YBOOK
                 }
 
                 txtTitulo.Text = libroActual.Titulo1;
-                lb_Idioma.Text = libroActual.Idioma1;
-                lb_NumeroPaginas.Text = libroActual.NumeroPaginas1.ToString();
+                txt_Idioma.Text = libroActual.Idioma1;
+                txt_paginasTotales.Text = libroActual.NumeroPaginas1.ToString();
                 cb_Estado.Text = estadoLibro;
                 progressBar1.Value = progreso;
 
@@ -178,8 +178,8 @@ namespace YBOOK
             }
 
             txtTitulo.Text = libroActual.Titulo1;
-            lb_Idioma.Text = libroActual.Idioma1;
-            lb_NumeroPaginas.Text = libroActual.NumeroPaginas1.ToString();
+            txt_Idioma.Text = libroActual.Idioma1;
+            txt_paginasTotales.Text = libroActual.NumeroPaginas1.ToString();
             cb_Estado.Text = estadoLibro;
 
             if (estadoLibro == "Leyendo")
@@ -196,6 +196,14 @@ namespace YBOOK
                 label9.Hide();
                 progressBar1.Hide();
                 lb_progreso.Hide();
+            }
+            else if (estadoLibro == "Leido")
+            {
+                numeric_PaginaActual.Hide();
+                label9.Hide();
+                progressBar1.Hide();
+                lb_progreso.Show();
+                progressBar1.Value = 100;
             }
             else
             {
