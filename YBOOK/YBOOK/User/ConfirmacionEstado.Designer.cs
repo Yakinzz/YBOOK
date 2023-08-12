@@ -39,6 +39,7 @@ namespace YBOOK
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btn_LogIn = new System.Windows.Forms.Button();
             this.txtTotalPaginas = new System.Windows.Forms.TextBox();
+            this.btnCancelarForm = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -59,6 +60,7 @@ namespace YBOOK
             this.cb_Estados.Name = "cb_Estados";
             this.cb_Estados.Size = new System.Drawing.Size(216, 23);
             this.cb_Estados.TabIndex = 2;
+            this.cb_Estados.SelectedIndexChanged += new System.EventHandler(this.cb_Estados_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -102,12 +104,13 @@ namespace YBOOK
             this.btn_LogIn.BackColor = System.Drawing.Color.RoyalBlue;
             this.btn_LogIn.Font = new System.Drawing.Font("Acephimere", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_LogIn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_LogIn.Location = new System.Drawing.Point(516, 266);
+            this.btn_LogIn.Location = new System.Drawing.Point(542, 266);
             this.btn_LogIn.Name = "btn_LogIn";
-            this.btn_LogIn.Size = new System.Drawing.Size(235, 32);
+            this.btn_LogIn.Size = new System.Drawing.Size(209, 32);
             this.btn_LogIn.TabIndex = 25;
             this.btn_LogIn.Text = "Agregar a mis libros";
             this.btn_LogIn.UseVisualStyleBackColor = false;
+            this.btn_LogIn.Click += new System.EventHandler(this.btn_LogIn_Click);
             // 
             // txtTotalPaginas
             // 
@@ -119,12 +122,26 @@ namespace YBOOK
             this.txtTotalPaginas.Size = new System.Drawing.Size(65, 22);
             this.txtTotalPaginas.TabIndex = 26;
             // 
+            // btnCancelarForm
+            // 
+            this.btnCancelarForm.BackColor = System.Drawing.Color.LightCoral;
+            this.btnCancelarForm.Font = new System.Drawing.Font("Acephimere", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelarForm.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnCancelarForm.Location = new System.Drawing.Point(408, 266);
+            this.btnCancelarForm.Name = "btnCancelarForm";
+            this.btnCancelarForm.Size = new System.Drawing.Size(98, 32);
+            this.btnCancelarForm.TabIndex = 27;
+            this.btnCancelarForm.Text = "Cancelar";
+            this.btnCancelarForm.UseVisualStyleBackColor = false;
+            this.btnCancelarForm.Click += new System.EventHandler(this.btnCancelarForm_Click);
+            // 
             // ConfirmacionEstado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Lavender;
             this.ClientSize = new System.Drawing.Size(763, 310);
+            this.Controls.Add(this.btnCancelarForm);
             this.Controls.Add(this.txtTotalPaginas);
             this.Controls.Add(this.btn_LogIn);
             this.Controls.Add(this.pictureBox1);
@@ -141,6 +158,8 @@ namespace YBOOK
             this.ResumeLayout(false);
             this.PerformLayout();
         }
+
+        private System.Windows.Forms.Button btnCancelarForm;
 
         private System.Windows.Forms.TextBox txtTotalPaginas;
 

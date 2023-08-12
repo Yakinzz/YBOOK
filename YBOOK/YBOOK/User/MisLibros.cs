@@ -30,11 +30,7 @@ namespace YBOOK
             this.usuarios = usuarios;
             this.idUsuario = idUsuario;
             
-
-
             Usuario usuario = new Usuario();
-
-
             for (int i = 0; i < usuarios.Count(); i++)
             {
                 usuario = usuarios[i];
@@ -47,23 +43,16 @@ namespace YBOOK
 
             librosUsuario = GetAllMisLibros();
             libros = GetAllLibros();
-
             
-
             List<string> listdelibros = new List<string>();
-
             string nombreLibro = null;
             
-
             for (int i = 0; i < librosUsuario.Count(); i++)
             {
                 libroUsuario = librosUsuario[i];
-
-
                 if (libroUsuario.ID_Usuario1 == usuarioActivo.ID1)
                 {
                     Libro libro = new Libro();
-
                     for (int j = 0; j < libros.Count(); j++)
                     {
                         libro = libros[j];
@@ -74,19 +63,14 @@ namespace YBOOK
                             break;
                         }
                     }
-
                 }
             }
 
             listBox1.DataSource=listdelibros;
-
-
-
             
             if (listBox1.Items.Count > 0)
             {
                 string libroSeleccionado = listBox1.SelectedItem.ToString();
-
                 Libro libro = new Libro();
                 Libro libroActual = new Libro();
                 for (int i = 0; i < libros.Count(); i++)
@@ -101,12 +85,10 @@ namespace YBOOK
 
                 string estadoLibro = null;
                 int paginaActual = 0;
-
                 EstadoLibro libroUsuarioo = new EstadoLibro();
                 for (int i = 0; i < librosUsuario.Count(); i++)
                 {
                     libroUsuarioo = librosUsuario[i];
-
                     if (libroUsuarioo.ID_Usuario1 == usuarioActivo.ID1 && libroUsuarioo.ID_Libro1 == libroActual.ID1)
                     {
                         estadoLibro = libroUsuarioo.Estado1;
@@ -120,31 +102,34 @@ namespace YBOOK
                 txt_paginasTotales.Text = libroActual.NumeroPaginas1.ToString();
                 cb_Estado.Text = estadoLibro;
                 progressBar1.Value = progreso;
-
-
-                if (estadoLibro == "Leyendo")
+                
+                if (cb_Estado.Text == "Leyendo")
                 {
                     label9.Show();
-                    numeric_PaginaActual.Show();
-                    numeric_PaginaActual.Value = paginaActual;
-                    progressBar1.Value = progreso;
-                    
-                }else if (estadoLibro == "Deseado")
+                    txtPaginaActual.Show();
+                    txtPaginaActual.Text = paginaActual.ToString();
+                    progressBar1.Show();
+                    progressBar1.Minimum = 0;
+                    progressBar1.Maximum = libroActual.NumeroPaginas1;
+                    progressBar1.Value = paginaActual;
+                }
+                else if (cb_Estado.Text == "Deseado")
                 {
-                    numeric_PaginaActual.Hide();
+                    txtPaginaActual.Hide();
                     label9.Hide();
                     progressBar1.Hide();
                     lb_progreso.Hide();
                 }
                 else
                 {
-                    numeric_PaginaActual.Hide();
+                    txtPaginaActual.Hide();
                     label9.Hide();
+                    progressBar1.Show();
                     progressBar1.Value = 100;
                 }
             }
         }
-
+        /*----------  Se controla cuando se selecciona un nuevo libro en el listBox  ----------*/
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             string libroSeleccionado = listBox1.SelectedItem.ToString();
@@ -162,13 +147,10 @@ namespace YBOOK
             }
 
             string estadoLibro = null;
-            
-
             EstadoLibro libroUsuarioo = new EstadoLibro();
             for (int i = 0; i < librosUsuario.Count(); i++)
             {
                 libroUsuarioo = librosUsuario[i];
-
                 if (libroUsuarioo.ID_Usuario1 == usuarioActivo.ID1 && libroUsuarioo.ID_Libro1 == libroActual.ID1)
                 {
                     estadoLibro = libroUsuarioo.Estado1;
@@ -181,83 +163,102 @@ namespace YBOOK
             txt_Idioma.Text = libroActual.Idioma1;
             txt_paginasTotales.Text = libroActual.NumeroPaginas1.ToString();
             cb_Estado.Text = estadoLibro;
-
+            
             if (estadoLibro == "Leyendo")
             {
                 label9.Show();
-                numeric_PaginaActual.Show();
-                numeric_PaginaActual.Value = paginaActual;
+                txtPaginaActual.Show();
+                txtPaginaActual.Text = paginaActual.ToString();
                 progressBar1.Value = progreso;
 
             }
             else if (estadoLibro == "Deseado")
             {
-                numeric_PaginaActual.Hide();
+                txtPaginaActual.Hide();
                 label9.Hide();
                 progressBar1.Hide();
                 lb_progreso.Hide();
             }
             else if (estadoLibro == "Leido")
             {
-                numeric_PaginaActual.Hide();
+                txtPaginaActual.Hide();
                 label9.Hide();
                 progressBar1.Hide();
                 lb_progreso.Show();
                 progressBar1.Value = 100;
             }
         }
-
-
-
-
-        public List<EstadoLibro> GetAllMisLibros()
+        /*----------  Se controla la acción de cambiar el estado del libro  ----------*/
+        private void cb_Estado_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cb_Estado.Text == "Leyendo")
             {
-                using (IDbConnection db = new SqlConnection(cadenaConexion))
-                {
-                    return (List<EstadoLibro>)db.GetAll<EstadoLibro>();
-                }
+                label9.Show();
+                txtPaginaActual.Show();
+                txtPaginaActual.Text = "0";
+                progressBar1.Show();
+                progressBar1.Value = 0;
             }
-            public List<Libro> GetAllLibros()
+            else if (cb_Estado.Text == "Deseado")
             {
-                using (IDbConnection db = new SqlConnection(cadenaConexion))
-                {
-                    return (List<Libro>)db.GetAll<Libro>();
-                }
+                txtPaginaActual.Hide();
+                label9.Hide();
+                progressBar1.Hide();
+                lb_progreso.Hide();
             }
-
-
-
-            private void cb_Estado_SelectedIndexChanged(object sender, EventArgs e)
-            { 
-                if (cb_Estado.Text == "Leyendo")
+            else
+            {
+                txtPaginaActual.Hide();
+                label9.Hide();
+                lb_progreso.Show();
+                progressBar1.Show();
+                progressBar1.Minimum = 0;
+                progressBar1.Maximum = 100;
+                progressBar1.Value = 100;
+                
+            }
+        }
+        /*----------  Controlo cuando modifico el valor de la pagina actual  ----------*/
+        private void txtPaginaActual_TextChanged(object sender, EventArgs e)
+        {
+            
+            if (txtPaginaActual.Text != "")
+            {
+                int numeroPaginasTotales = int.Parse(txt_paginasTotales.Text);
+                int paginaActual = int.Parse(txtPaginaActual.Text);
+                if (paginaActual >= 0 && paginaActual < numeroPaginasTotales)
                 {
-                    label9.Show();
-                    numeric_PaginaActual.Show();
-                    numeric_PaginaActual.Value = paginaActual;
-                    progressBar1.Value = progreso;
-                }
-                else if (cb_Estado.Text == "Deseado")
-                {
-                    numeric_PaginaActual.Hide();
-                    label9.Hide();
-                    progressBar1.Hide();
-                    lb_progreso.Hide();
+                    progressBar1.Minimum = 0;
+                    progressBar1.Maximum = numeroPaginasTotales;
+                    progressBar1.Value = paginaActual;
                 }
                 else
                 {
-                    numeric_PaginaActual.Hide();
-                    label9.Hide();
-                    lb_progreso.Show();
-                    progressBar1.Show();
-                    progressBar1.Value = 100;
-                
+                    MessageBox.Show("El número de página actual no es válido");
                 }
             }
-
+            else
+            {
+                //MessageBox.Show("La página actual es obligatoria si lo estás leyendo.");
+            }
+            
+        }
+            
         
+        /*----------  Métodos donde se realizan las consultas a la BBDD  ----------*/
+        public List<EstadoLibro> GetAllMisLibros()
+        {
+            using (IDbConnection db = new SqlConnection(cadenaConexion))
+            {
+                return (List<EstadoLibro>)db.GetAll<EstadoLibro>();
+            }
+        }
+        public List<Libro> GetAllLibros()
+        {
+            using (IDbConnection db = new SqlConnection(cadenaConexion))
+            {
+                return (List<Libro>)db.GetAll<Libro>();
+            }
+        }
     }
-    
-
-        
-    
 }

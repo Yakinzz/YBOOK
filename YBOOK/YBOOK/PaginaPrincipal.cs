@@ -143,6 +143,63 @@ namespace YBOOK
             this.panelLoader.Controls.Add(formEditarPeril);
             formEditarPeril.Show();
         }
+
+        private void btnLibros_MouseMove(object sender, MouseEventArgs e)
+        {
+            btnLibros.BackColor = Color.RoyalBlue;
+            btnLibros.ForeColor = Color.Black;
+        }
+        private void btnLibros_MouseLeave(object sender, EventArgs e)
+        {
+            btnLibros.ForeColor = Color.White;
+        }
+
+
+        private void btnLibrosUsuario_MouseLeave(object sender, EventArgs e)
+        {
+            btnLibrosUsuario.ForeColor = Color.White;
+        }
+
+        private void btnLibrosUsuario_MouseMove(object sender, MouseEventArgs e)
+        {
+            btnLibrosUsuario.BackColor = Color.RoyalBlue;
+            btnLibrosUsuario.ForeColor = Color.Black;
+        }
+
+        private void btnValoracion_MouseLeave(object sender, EventArgs e)
+        {
+            btnValoracion.ForeColor = Color.White;
+        }
+
+        private void btnValoracion_MouseMove(object sender, MouseEventArgs e)
+        {
+            btnValoracion.BackColor = Color.RoyalBlue;
+            btnValoracion.ForeColor = Color.Black;
+        }
+
+        private void btnAñadirLibro_MouseLeave(object sender, EventArgs e)
+        {
+            btnAñadirLibro.ForeColor = Color.White;
+        }
+
+        private void btnAñadirLibro_MouseMove(object sender, MouseEventArgs e)
+        {
+            btnAñadirLibro.BackColor = Color.RoyalBlue;
+            btnAñadirLibro.ForeColor = Color.Black;
+        }
+
+        private void btnEditarPerfil_MouseLeave(object sender, EventArgs e)
+        {
+            btnEditarPerfil.ForeColor = Color.White;
+        }
+
+        private void btnEditarPerfil_MouseMove(object sender, MouseEventArgs e)
+        {
+            btnEditarPerfil.BackColor = Color.RoyalBlue;
+            btnEditarPerfil.ForeColor = Color.Black;
+        }
+
+        
     }
 
     

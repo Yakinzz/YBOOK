@@ -143,14 +143,15 @@ namespace YBOOK
         }
         private void btnFavorito_Click(object sender, EventArgs e)
         {
-            ConfirmacionEstado form = new ConfirmacionEstado(libroSeleccionado,cadenaConexion,usuarioActivo.ID1);
+            
+            ConfirmacionEstado form = new ConfirmacionEstado(libroSeleccionado,cadenaConexion,usuarioActivo.ID1,btnFavorito,btnNoFavorito);
             form.Show();
-            AddAMisLibros(libroSeleccionado,usuarioActivo.ID1);
-            btnFavorito.Visible = false;
-            btnNoFavorito.Visible = true;
-            lb_addmislibros.Visible = false;
-            lb_eliminatemislibros.Visible = true;
-            MessageBox.Show("Se añadió a tus libros");
+            //AddAMisLibros(libroSeleccionado,usuarioActivo.ID1);
+            //btnFavorito.Visible = false;
+            //btnNoFavorito.Visible = true;
+            //lb_addmislibros.Visible = false;
+            //lb_eliminatemislibros.Visible = true;
+            
         }
 
         private static void BorrarDeMisLibros(EstadoLibro estadolibro)
@@ -163,7 +164,6 @@ namespace YBOOK
         }
         private static void AddAMisLibros(Libro nuevoMiLibro,int idUsuario)
         {
-            
             using (IDbConnection db = new SqlConnection(cadenaConexion))
             {
                 var consulta = $@"INSERT INTO MisLibros (ID_Usuario,ID_Libro) VALUES (" + idUsuario + "," + nuevoMiLibro.ID1 + ")";
