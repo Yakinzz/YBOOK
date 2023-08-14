@@ -44,6 +44,7 @@
             this.cb_Categoria = new System.Windows.Forms.ComboBox();
             this.btn_AñadirLibro = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btn_AddAutor = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.Numero_Páginas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -159,124 +160,7 @@
             // 
             this.cb_Idioma.Font = new System.Drawing.Font("Acephimere", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cb_Idioma.FormattingEnabled = true;
-            this.cb_Idioma.Items.AddRange(new object[] {
-            "Azerí",
-            "Afrikaans",
-            "Albanés",
-            "Alemán",
-            "Alsaciano",
-            "Amárico",
-            "Anglosajón",
-            "Árabe",
-            "Aragonés",
-            "Armenio",
-            "Aymara",
-            "Bajo sajón",
-            "Bengalí",
-            "Bielorruso",
-            "Birmano",
-            "Bosnio",
-            "Bretón",
-            "Búlgaro",
-            "Canarés",
-            "Catalán",
-            "Chamorro",
-            "Checo",
-            "Cheroqui",
-            "Chino mandarín",
-            "Coreano",
-            "Corso",
-            "Croata",
-            "Curdo",
-            "Danés",
-            "Eslovaco ",
-            "Esloveno",
-            "Español",
-            "Esperanto",
-            "Estonio",
-            "Euskera",
-            "Feroés",
-            "Fiyiano",
-            "Finlandés",
-            "Francés",
-            "Frisón",
-            "Galés",
-            "Gallego",
-            "Georgiano",
-            "Griego",
-            "Guaraní",
-            "Gujaratí",
-            "Hebreo israelí",
-            "Hindi",
-            "Holandés",
-            "Húngaro",
-            "Ido",
-            "Igbo",
-            "Indonesio",
-            "Inglés",
-            "Interlingua",
-            "Irlandés",
-            "Islandés",
-            "Italiano",
-            "Japonés",
-            "Javanés",
-            "Kazako",
-            "Laosiano",
-            "Latín",
-            "Letón",
-            "Lingala",
-            "Lituano",
-            "Luxemburgués",
-            "Macedonio",
-            "Malabar",
-            "Malayo",
-            "Malgache",
-            "Maltés",
-            "Manés",
-            "Maorí",
-            "Marati",
-            "Moldavo",
-            "Mongol",
-            "Náhuatl",
-            "Nauruano",
-            "Noruego",
-            "Occitano",
-            "Papiamento",
-            "Persa moderno",
-            "Polaco",
-            "Portugués",
-            "Punjabí",
-            "Quechua",
-            "Quirguiz",
-            "Romanche",
-            "Rumano",
-            "Ruso",
-            "Sardo",
-            "Serbio",
-            "Sesotho",
-            "Siciliano",
-            "Somalí",
-            "Sueco",
-            "Swahili",
-            "Tagalo",
-            "Tailandés",
-            "Tamil",
-            "Tártaro",
-            "Tártaro de Crimea",
-            "Tegulú",
-            "Tibetano",
-            "Turco",
-            "Turcomano",
-            "Ucraniano",
-            "Urdu",
-            "Uzbeko",
-            "Valón",
-            "Vietnamita",
-            "Volapuk",
-            "Xhosa",
-            "Yidish",
-            "Yoruba",
-            "Zulú"});
+            this.cb_Idioma.Items.AddRange(new object[] { "Azerí", "Afrikaans", "Albanés", "Alemán", "Alsaciano", "Amárico", "Anglosajón", "Árabe", "Aragonés", "Armenio", "Aymara", "Bajo sajón", "Bengalí", "Bielorruso", "Birmano", "Bosnio", "Bretón", "Búlgaro", "Canarés", "Catalán", "Chamorro", "Checo", "Cheroqui", "Chino mandarín", "Coreano", "Corso", "Croata", "Curdo", "Danés", "Eslovaco ", "Esloveno", "Español", "Esperanto", "Estonio", "Euskera", "Feroés", "Fiyiano", "Finlandés", "Francés", "Frisón", "Galés", "Gallego", "Georgiano", "Griego", "Guaraní", "Gujaratí", "Hebreo israelí", "Hindi", "Holandés", "Húngaro", "Ido", "Igbo", "Indonesio", "Inglés", "Interlingua", "Irlandés", "Islandés", "Italiano", "Japonés", "Javanés", "Kazako", "Laosiano", "Latín", "Letón", "Lingala", "Lituano", "Luxemburgués", "Macedonio", "Malabar", "Malayo", "Malgache", "Maltés", "Manés", "Maorí", "Marati", "Moldavo", "Mongol", "Náhuatl", "Nauruano", "Noruego", "Occitano", "Papiamento", "Persa moderno", "Polaco", "Portugués", "Punjabí", "Quechua", "Quirguiz", "Romanche", "Rumano", "Ruso", "Sardo", "Serbio", "Sesotho", "Siciliano", "Somalí", "Sueco", "Swahili", "Tagalo", "Tailandés", "Tamil", "Tártaro", "Tártaro de Crimea", "Tegulú", "Tibetano", "Turco", "Turcomano", "Ucraniano", "Urdu", "Uzbeko", "Valón", "Vietnamita", "Volapuk", "Xhosa", "Yidish", "Yoruba", "Zulú" });
             this.cb_Idioma.Location = new System.Drawing.Point(613, 322);
             this.cb_Idioma.Name = "cb_Idioma";
             this.cb_Idioma.Size = new System.Drawing.Size(168, 28);
@@ -294,14 +178,7 @@
             // 
             this.cb_Categoria.Font = new System.Drawing.Font("Acephimere", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cb_Categoria.FormattingEnabled = true;
-            this.cb_Categoria.Items.AddRange(new object[] {
-            "Narrativa",
-            "Policiaca",
-            "Terror",
-            "Autoayuda",
-            "Alimentacion",
-            "Anime",
-            "Educativo"});
+            this.cb_Categoria.Items.AddRange(new object[] { "Narrativa", "Policiaca", "Terror", "Autoayuda", "Alimentacion", "Anime", "Educativo" });
             this.cb_Categoria.Location = new System.Drawing.Point(888, 398);
             this.cb_Categoria.Name = "cb_Categoria";
             this.cb_Categoria.Size = new System.Drawing.Size(220, 28);
@@ -330,12 +207,26 @@
             this.pictureBox1.TabIndex = 15;
             this.pictureBox1.TabStop = false;
             // 
+            // btn_AddAutor
+            // 
+            this.btn_AddAutor.BackColor = System.Drawing.Color.RoyalBlue;
+            this.btn_AddAutor.Font = new System.Drawing.Font("Acephimere", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_AddAutor.ForeColor = System.Drawing.Color.White;
+            this.btn_AddAutor.Location = new System.Drawing.Point(850, 246);
+            this.btn_AddAutor.Name = "btn_AddAutor";
+            this.btn_AddAutor.Size = new System.Drawing.Size(48, 28);
+            this.btn_AddAutor.TabIndex = 16;
+            this.btn_AddAutor.Text = "+";
+            this.btn_AddAutor.UseVisualStyleBackColor = false;
+            this.btn_AddAutor.Click += new System.EventHandler(this.btn_AddAutor_Click);
+            // 
             // AñadirLibro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1137, 712);
+            this.Controls.Add(this.btn_AddAutor);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btn_AñadirLibro);
             this.Controls.Add(this.cb_Categoria);
@@ -359,8 +250,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
+
+        private System.Windows.Forms.Button btn_AddAutor;
 
         #endregion
 

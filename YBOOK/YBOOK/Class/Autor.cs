@@ -14,33 +14,30 @@ namespace YBOOK
         string Nombre;
         string Apellidos;
         string Nacionalidad;
-        string FechaNacimiento;
-        string FechaFallecimiento;
+        DateTime FechaNacimiento;
+        DateTime FechaFallecimiento;
         
-
         public Autor()
         {
             
         }
 
-        public Autor(int AutoriD, string nombre, string apellidos, string nacionalidad, string fechaNacimiento, string fechaDefuncion)
+        public Autor(int AutoriD, string nombre, string apellidos, string nacionalidad, DateTime fechaNacimiento, DateTime fechaFallecimiento)
         {
             AutorID = AutoriD;
             Nombre = nombre;
+            Apellidos = apellidos;
             Nacionalidad = nacionalidad;
             FechaNacimiento = fechaNacimiento;
-            FechaFallecimiento = fechaDefuncion;
-            Apellidos = apellidos;
+            FechaFallecimiento = fechaFallecimiento;
+            
         }
 
         [Key] public int ID1 { get => AutorID; set => AutorID = value; }
         public string Nombre1 { get => Nombre; set => Nombre = value; }
-        public string Nacionalidad1 { get => Nacionalidad; set => Nacionalidad = value; }
-        public string FechaNacimiento1 { get => FechaNacimiento; set => FechaNacimiento = value; }
-        public string FechaDefuncion1 { get => FechaFallecimiento; set => FechaFallecimiento = value; }
         public string Apellidos1 { get => Apellidos; set => Apellidos = value; }
-
-
-            
-        }
+        public string Nacionalidad1 { get => Nacionalidad; set => Nacionalidad = value; }
+        public DateTime FechaNacimiento1 { get => FechaNacimiento; set => FechaNacimiento = value; }
+        public DateTime FechaFallecimiento1 { get => FechaFallecimiento; set => FechaFallecimiento = value; }
+    }
 }

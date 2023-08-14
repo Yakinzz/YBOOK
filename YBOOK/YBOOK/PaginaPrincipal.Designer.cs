@@ -45,8 +45,10 @@
             this.panelLoader = new System.Windows.Forms.Panel();
             this.label_NombreSeccion = new System.Windows.Forms.Label();
             this.btn_Cerrar = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -236,6 +238,7 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.pictureBox1);
             this.panel2.Controls.Add(this.label_Username);
             this.panel2.Controls.Add(this.panel3);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
@@ -247,11 +250,12 @@
             // label_Username
             // 
             this.label_Username.AutoSize = true;
-            this.label_Username.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_Username.ForeColor = System.Drawing.Color.White;
+            this.label_Username.BackColor = System.Drawing.Color.RoyalBlue;
+            this.label_Username.Font = new System.Drawing.Font("Acephimere", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_Username.ForeColor = System.Drawing.Color.Black;
             this.label_Username.Location = new System.Drawing.Point(28, 95);
             this.label_Username.Name = "label_Username";
-            this.label_Username.Size = new System.Drawing.Size(90, 22);
+            this.label_Username.Size = new System.Drawing.Size(93, 20);
             this.label_Username.TabIndex = 17;
             this.label_Username.Text = "USERNAME";
             this.label_Username.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -298,6 +302,16 @@
             this.btn_Cerrar.UseVisualStyleBackColor = true;
             this.btn_Cerrar.Click += new System.EventHandler(this.btn_Cerrar_Click);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = global::YBOOK.Properties.Resources.user_profile_2;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox1.Location = new System.Drawing.Point(40, 10);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(81, 72);
+            this.pictureBox1.TabIndex = 18;
+            this.pictureBox1.TabStop = false;
+            // 
             // PaginaPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -315,9 +329,12 @@
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
         }
+
+        private System.Windows.Forms.PictureBox pictureBox1;
 
         #endregion
 

@@ -169,7 +169,10 @@ namespace YBOOK
         }
 
 
-
-
+        private void btn_AddAutor_Click(object sender, EventArgs e)
+        {
+            NuevoActor form = new NuevoActor(cadenaConexion);
+            form.Show();
+        }
     }
 }
