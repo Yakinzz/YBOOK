@@ -50,7 +50,7 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.RoyalBlue;
+            this.panel1.BackColor = System.Drawing.Color.Salmon;
             this.panel1.Controls.Add(this.panel5);
             this.panel1.Controls.Add(this.panel4);
             this.panel1.Controls.Add(this.panel3);
@@ -75,7 +75,7 @@
             this.btnEditarPerfil.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.btnEditarPerfil.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEditarPerfil.Font = new System.Drawing.Font("Acephimere", 12F, System.Drawing.FontStyle.Bold);
-            this.btnEditarPerfil.ForeColor = System.Drawing.Color.White;
+            this.btnEditarPerfil.ForeColor = System.Drawing.Color.Black;
             this.btnEditarPerfil.Location = new System.Drawing.Point(5, 243);
             this.btnEditarPerfil.Margin = new System.Windows.Forms.Padding(10);
             this.btnEditarPerfil.Name = "btnEditarPerfil";
@@ -93,7 +93,7 @@
             this.btnLogout.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogout.Font = new System.Drawing.Font("Acephimere", 12F, System.Drawing.FontStyle.Bold);
-            this.btnLogout.ForeColor = System.Drawing.Color.White;
+            this.btnLogout.ForeColor = System.Drawing.Color.Black;
             this.btnLogout.Image = global::YBOOK.Properties.Resources.logout;
             this.btnLogout.Location = new System.Drawing.Point(5, 755);
             this.btnLogout.Margin = new System.Windows.Forms.Padding(10);
@@ -112,7 +112,7 @@
             this.btnUsuarios.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.btnUsuarios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUsuarios.Font = new System.Drawing.Font("Acephimere", 12F, System.Drawing.FontStyle.Bold);
-            this.btnUsuarios.ForeColor = System.Drawing.Color.White;
+            this.btnUsuarios.ForeColor = System.Drawing.Color.Black;
             this.btnUsuarios.Location = new System.Drawing.Point(5, 208);
             this.btnUsuarios.Margin = new System.Windows.Forms.Padding(10);
             this.btnUsuarios.Name = "btnUsuarios";
@@ -130,7 +130,7 @@
             this.btnValoracion.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.btnValoracion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnValoracion.Font = new System.Drawing.Font("Acephimere", 12F, System.Drawing.FontStyle.Bold);
-            this.btnValoracion.ForeColor = System.Drawing.Color.White;
+            this.btnValoracion.ForeColor = System.Drawing.Color.Black;
             this.btnValoracion.Location = new System.Drawing.Point(5, 173);
             this.btnValoracion.Margin = new System.Windows.Forms.Padding(10);
             this.btnValoracion.Name = "btnValoracion";
@@ -148,7 +148,7 @@
             this.btnLibros.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.btnLibros.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLibros.Font = new System.Drawing.Font("Acephimere", 12F, System.Drawing.FontStyle.Bold);
-            this.btnLibros.ForeColor = System.Drawing.Color.White;
+            this.btnLibros.ForeColor = System.Drawing.Color.Black;
             this.btnLibros.Location = new System.Drawing.Point(5, 141);
             this.btnLibros.Margin = new System.Windows.Forms.Padding(10);
             this.btnLibros.Name = "btnLibros";
@@ -223,9 +223,9 @@
             // label_Username
             // 
             this.label_Username.AutoSize = true;
-            this.label_Username.BackColor = System.Drawing.Color.RoyalBlue;
+            this.label_Username.BackColor = System.Drawing.Color.Salmon;
             this.label_Username.Font = new System.Drawing.Font("Acephimere", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_Username.ForeColor = System.Drawing.Color.Black;
+            this.label_Username.ForeColor = System.Drawing.Color.White;
             this.label_Username.Location = new System.Drawing.Point(38, 101);
             this.label_Username.Name = "label_Username";
             this.label_Username.Size = new System.Drawing.Size(93, 20);

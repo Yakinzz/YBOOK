@@ -2,7 +2,7 @@ using System.ComponentModel;
 
 namespace YBOOK.Admin
 {
-    partial class Biblioteca_Admin
+    partial class Valoraciones_Admin
     {
         /// <summary>
         /// Required designer variable.
@@ -33,15 +33,15 @@ namespace YBOOK.Admin
         {
             this.SuspendLayout();
             // 
-            // Biblioteca_Admin
+            // Valoraciones_Admin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1137, 712);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "Biblioteca_Admin";
-            this.Text = "Biblioteca_Admin";
+            this.Name = "Valoraciones_Admin";
+            this.Text = "Valoraciones_Admin";
             this.ResumeLayout(false);
         }
 

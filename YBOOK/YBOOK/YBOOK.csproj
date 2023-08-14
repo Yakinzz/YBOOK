@@ -86,6 +86,18 @@
     <Compile Include="Admin\PaginaPrincipal_Admin.Designer.cs">
       <DependentUpon>PaginaPrincipal_Admin.cs</DependentUpon>
     </Compile>
+    <Compile Include="Admin\Usuarios_Admin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\Usuarios_Admin.Designer.cs">
+      <DependentUpon>Usuarios_Admin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Valoraciones_Admin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\Valoraciones_Admin.Designer.cs">
+      <DependentUpon>Valoraciones_Admin.cs</DependentUpon>
+    </Compile>
     <Compile Include="Class\Autor.cs" />
     <Compile Include="User\AñadirLibro.cs">
       <SubType>Form</SubType>
@@ -172,8 +184,17 @@
       <DependentUpon>Valoracion.cs</DependentUpon>
     </Compile>
     <Compile Include="Class\Valoraciones.cs" />
+    <EmbeddedResource Include="Admin\Biblioteca_Admin.resx">
+      <DependentUpon>Biblioteca_Admin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Admin\PaginaPrincipal_Admin.resx">
       <DependentUpon>PaginaPrincipal_Admin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\Usuarios_Admin.resx">
+      <DependentUpon>Usuarios_Admin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\Valoraciones_Admin.resx">
+      <DependentUpon>Valoraciones_Admin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="User\AñadirLibro.resx">
       <DependentUpon>AñadirLibro.cs</DependentUpon>
