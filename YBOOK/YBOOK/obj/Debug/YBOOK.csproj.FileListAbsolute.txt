@@ -34,3 +34,6 @@ C:\Users\yagoa\Desktop\YBOOK\YBOOK\YBOOK\obj\Debug\YBOOK.MasInformacionValoracio
 C:\Users\yagoa\Desktop\YBOOK\YBOOK\YBOOK\obj\Debug\YBOOK.Admin.PaginaPrincipal_Admin.resources
 C:\Users\yagoa\Desktop\YBOOK\YBOOK\YBOOK\obj\Debug\YBOOK.ConfirmacionEstado.resources
 C:\Users\yagoa\Desktop\YBOOK\YBOOK\YBOOK\obj\Debug\YBOOK.NuevoActor.resources
+C:\Users\yagoa\Desktop\YBOOK\YBOOK\YBOOK\obj\Debug\YBOOK.Admin.Biblioteca_Admin.resources
+C:\Users\yagoa\Desktop\YBOOK\YBOOK\YBOOK\obj\Debug\YBOOK.Admin.Usuarios_Admin.resources
+C:\Users\yagoa\Desktop\YBOOK\YBOOK\YBOOK\obj\Debug\YBOOK.Admin.Valoraciones_Admin.resources

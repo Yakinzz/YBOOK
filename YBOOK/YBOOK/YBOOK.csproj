@@ -353,6 +353,7 @@
     <Content Include="Resources\fondoInformacionLibro.jpg" />
     <Content Include="Resources\fondoMisLibros.jpg" />
     <Content Include="Resources\fondoValoracion.jpg" />
+    <Content Include="Resources\fondo_UsuariosAdmin.jpg" />
     <Content Include="Resources\user_profile.png" />
     <Content Include="Resources\user_profile_2.png" />
   </ItemGroup>

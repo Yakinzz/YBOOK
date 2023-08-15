@@ -26,6 +26,7 @@ namespace YBOOK
         Usuario usuario = new Usuario();
         Usuario usuarioActivo = new Usuario();
         Libro libroSeleccionado = new Libro();
+        int idLibroSeleccionado = 0;
         public InformacionLibro(string nombre, List<Libro> librosA, string cadenaConexionA,int idUsuarioA)
         {
             InitializeComponent();
@@ -62,6 +63,7 @@ namespace YBOOK
                 if (libro.Titulo1.Equals(nombre))
                 {
                     libroSeleccionado = libro;
+                    idLibroSeleccionado = libroSeleccionado.ID1;
                     break;
                 }
             }
@@ -135,6 +137,14 @@ namespace YBOOK
         private void btnNoFavorito_Click(object sender, EventArgs e)
         {
             BorrarDeMisLibros(libroUsuario);
+            using(IDbConnection db = new SqlConnection(cadenaConexion))
+            {
+                Valoraciones borrarValoracion = new Valoraciones();
+                borrarValoracion.ID_Libro1 = idLibroSeleccionado;
+                borrarValoracion.ID_Usuario1 = idUsuario;
+                var consulta = $@"DELETE Valoraciones WHERE UsuarioID='"+borrarValoracion.ID_Usuario1+"' AND LibroID='"+borrarValoracion.ID_Libro1+"'";
+                db.Execute(consulta, borrarValoracion);
+            }
             btnFavorito.Visible = true;
             btnNoFavorito.Visible = false;
             lb_addmislibros.Visible = true;
@@ -153,7 +163,7 @@ namespace YBOOK
             //lb_eliminatemislibros.Visible = true;
             
         }
-
+        
         private static void BorrarDeMisLibros(EstadoLibro estadolibro)
         {
             using(IDbConnection db = new SqlConnection(cadenaConexion))

@@ -192,6 +192,16 @@ namespace YBOOK.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap fondo_UsuariosAdmin {
+            get {
+                object obj = ResourceManager.GetObject("fondo_UsuariosAdmin", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap fondoAddLibro {
             get {
                 object obj = ResourceManager.GetObject("fondoAddLibro", resourceCulture);

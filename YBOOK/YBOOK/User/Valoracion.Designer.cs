@@ -30,7 +30,6 @@
         {
             this.cb_libros = new System.Windows.Forms.ComboBox();
             this.btn_AddValoracion = new System.Windows.Forms.Button();
-            this.btn_Cancelar = new System.Windows.Forms.Button();
             this.btn_EliminarValoracion = new System.Windows.Forms.Button();
             this.lbLibro = new System.Windows.Forms.Label();
             this.lbPuntuacion = new System.Windows.Forms.Label();
@@ -72,32 +71,30 @@
             // 
             // btn_AddValoracion
             // 
-            this.btn_AddValoracion.Location = new System.Drawing.Point(700, 319);
+            this.btn_AddValoracion.BackColor = System.Drawing.Color.RoyalBlue;
+            this.btn_AddValoracion.Font = new System.Drawing.Font("Acephimere", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_AddValoracion.ForeColor = System.Drawing.Color.White;
+            this.btn_AddValoracion.Location = new System.Drawing.Point(938, 310);
             this.btn_AddValoracion.Name = "btn_AddValoracion";
-            this.btn_AddValoracion.Size = new System.Drawing.Size(72, 44);
+            this.btn_AddValoracion.Size = new System.Drawing.Size(129, 44);
             this.btn_AddValoracion.TabIndex = 2;
             this.btn_AddValoracion.Text = "Añadir Valoracion";
-            this.btn_AddValoracion.UseVisualStyleBackColor = true;
-            // 
-            // btn_Cancelar
-            // 
-            this.btn_Cancelar.Location = new System.Drawing.Point(814, 319);
-            this.btn_Cancelar.Name = "btn_Cancelar";
-            this.btn_Cancelar.Size = new System.Drawing.Size(72, 44);
-            this.btn_Cancelar.TabIndex = 3;
-            this.btn_Cancelar.Text = "Cancelar";
-            this.btn_Cancelar.UseVisualStyleBackColor = true;
-            this.btn_Cancelar.Visible = false;
+            this.btn_AddValoracion.UseVisualStyleBackColor = false;
+            this.btn_AddValoracion.Click += new System.EventHandler(this.btn_AddValoracion_Click);
             // 
             // btn_EliminarValoracion
             // 
-            this.btn_EliminarValoracion.Location = new System.Drawing.Point(921, 319);
+            this.btn_EliminarValoracion.BackColor = System.Drawing.Color.LightSalmon;
+            this.btn_EliminarValoracion.Font = new System.Drawing.Font("Acephimere", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_EliminarValoracion.ForeColor = System.Drawing.Color.White;
+            this.btn_EliminarValoracion.Location = new System.Drawing.Point(803, 310);
             this.btn_EliminarValoracion.Name = "btn_EliminarValoracion";
-            this.btn_EliminarValoracion.Size = new System.Drawing.Size(72, 44);
+            this.btn_EliminarValoracion.Size = new System.Drawing.Size(129, 44);
             this.btn_EliminarValoracion.TabIndex = 4;
             this.btn_EliminarValoracion.Text = "Eliminar";
-            this.btn_EliminarValoracion.UseVisualStyleBackColor = true;
+            this.btn_EliminarValoracion.UseVisualStyleBackColor = false;
             this.btn_EliminarValoracion.Visible = false;
+            this.btn_EliminarValoracion.Click += new System.EventHandler(this.btn_EliminarValoracion_Click);
             // 
             // lbLibro
             // 
@@ -354,7 +351,6 @@
             this.Controls.Add(this.lbPuntuacion);
             this.Controls.Add(this.lbLibro);
             this.Controls.Add(this.btn_EliminarValoracion);
-            this.Controls.Add(this.btn_Cancelar);
             this.Controls.Add(this.btn_AddValoracion);
             this.Controls.Add(this.cb_libros);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -376,7 +372,6 @@
 
         private System.Windows.Forms.ComboBox cb_libros;
         private System.Windows.Forms.Button btn_AddValoracion;
-        private System.Windows.Forms.Button btn_Cancelar;
         private System.Windows.Forms.Button btn_EliminarValoracion;
         private System.Windows.Forms.Label lbLibro;
         private System.Windows.Forms.Label lbPuntuacion;
