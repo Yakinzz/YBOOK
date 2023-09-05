@@ -57,7 +57,11 @@ namespace YBOOK
             //Si tiene algún elemento el combobox, selecciono el primero-------------------------
             if(cb_libros.Items.Count == 0)
             {
+                lbLibro.Visible = false;
+                txtLibro.Visible = false;
+                label1.Visible= false;
                 MessageBox.Show("No tienes libros añadidos para valorar.");
+                
             }
             else
             {
