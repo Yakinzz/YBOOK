@@ -22,6 +22,7 @@ namespace YBOOK
         {
             InitializeComponent();
             
+            
             cadenaConexion = cadenaConexionA;
             idUsuario = idUsuarioA;
             libros = GetAllLibros();
@@ -33,14 +34,15 @@ namespace YBOOK
 
             CargarElementosEnFlowLayoutPanel();
 
-            
-            
+          
+
             Libro libro = new Libro();
             for (int i = 0; i < libros.Count(); i++)
             {
                 libro = libros[i];
                 
             }
+            
         }
 
         // Aquí vendría el código de conexión a la base de datos y consulta para obtener los datos.

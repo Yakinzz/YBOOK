@@ -111,7 +111,7 @@ namespace YBOOK
         {
             label_NombreSeccion.Text = "EDITAR PERFIL";
             this.panelLoader.Controls.Clear();
-            EditarPerfil formEditarPerfil = new EditarPerfil()
+            EditarPerfil formEditarPerfil = new EditarPerfil(cadenaConexion,id_usuario)
             {
                 Dock = DockStyle.Fill,
                 TopLevel = false,
@@ -129,20 +129,6 @@ namespace YBOOK
             Hide();
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-            label_NombreSeccion.Text = "EDITAR PERFIL";
-            this.panelLoader.Controls.Clear();
-            EditarPerfil formEditarPeril = new EditarPerfil()
-            {
-                Dock = DockStyle.Fill,
-                TopLevel = false,
-                TopMost = true
-            };
-            formEditarPeril.FormBorderStyle = FormBorderStyle.None;
-            this.panelLoader.Controls.Add(formEditarPeril);
-            formEditarPeril.Show();
-        }
 
         private void btnLibros_MouseMove(object sender, MouseEventArgs e)
         {

@@ -20,7 +20,8 @@ namespace YBOOK
     {
 
         List<Usuario> listaUsuarios = new List<Usuario>();
-        string cadenaConexion = null;
+        public static string cadenaConexion = null;
+        Usuario nuevoUsuario = new Usuario();
         public Registro(List<Usuario> listaUsuarios2,string cadenaConexionA)
         {
             InitializeComponent();
@@ -53,7 +54,7 @@ namespace YBOOK
             }
         }
 
-
+        
         private void btn_Register_Click(object sender, EventArgs e)
         {
             string errores = "";
@@ -69,6 +70,10 @@ namespace YBOOK
                 errores = errores + "-Nombre no valido.\n";
                 contadorErrores++;
             }
+            else
+            {
+                nuevoUsuario.Nombre1 = txtNombre.Text;
+            }
 
 
 
@@ -81,6 +86,10 @@ namespace YBOOK
             {
                 contadorErrores++;
                 errores = errores + "-Email no valido.\n";
+            }
+            else
+            {
+                nuevoUsuario.Email1 = txtEmail.Text;
             }
 
 
@@ -111,10 +120,14 @@ namespace YBOOK
                     contadorErrores++;
                     errores = errores + "-Nombre de usuario no valido.\n";
                 }
+                else
+                {
+                    nuevoUsuario.Username= txtUsername.Text;
+                }
             }
             else
             {
-                errores = errores + "-Nombre de usuario ya logueado.\n";
+                errores = errores + "-Nombre de usuario ya utilizado.\n";
             }
 
 
@@ -128,6 +141,10 @@ namespace YBOOK
                 contadorErrores++;
                 errores = errores + "-Contraseña no valida.\n";
             }
+            else
+            {
+                nuevoUsuario.Password = txtPassword.Text;
+            }
 
 
 
@@ -135,37 +152,49 @@ namespace YBOOK
             //Valido la caja de texto del teléfono con una expresión regular
 
             string rex_Telefono = @"^[0-9]{9}$";
-            if (Regex.IsMatch(txtNumeroTelefono.Text, rex_Telefono))
+            if (!Regex.IsMatch(txtNumeroTelefono.Text, rex_Telefono))
             {
                 contadorErrores++;
                 errores = errores + "-Número teléfono no valido.\n";
             }
+            else
+            {
+                nuevoUsuario.Telefono = int.Parse(txtNumeroTelefono.Text);
 
+            }
 
+            nuevoUsuario.Rol = "Usuario";
 
-
-
-
-
-            //Valido que la fecha esté seleccionada
-
-
-
+           
             if (contadorErrores == 0)
             {
-                using (var connection = new SqlConnection(cadenaConexion)) // Cambia SqlConnection según tu base de datos
-                {
-                    string query_NuevoUsuario = "INSERT INTO Usuarios (, Email) VALUES (@Nombre, @Email)";
+                AddUsuarioNuevo(nuevoUsuario);
+                MessageBox.Show("Usuario creado correctamente");
 
-                    // Ejecutar el INSERT INTO con Dapper
-                    connection.Execute(query_NuevoUsuario, usuario);
-                }
+                Form_Inicial form = new Form_Inicial();
+                form.Show();
+                Hide();
+            }
+            else
+            {
+                MessageBox.Show("" + errores);
             }
         }
 
-        
+        private static void AddUsuarioNuevo(Usuario nuevoUsuario)
+        {
 
-        
+            using (IDbConnection db = new SqlConnection(cadenaConexion))
+            {
+                var consulta = $@"INSERT INTO Usuarios (Nombre,Email,Telefono,Username,Password,Rol) VALUES ('" + nuevoUsuario.Nombre1 + "', '" + nuevoUsuario.Email1 + "','" + nuevoUsuario.Telefono + "','" + nuevoUsuario.Username + "','" + nuevoUsuario.Password + "','"+nuevoUsuario.Rol+"')";
+                db.Execute(consulta, nuevoUsuario);
+              
+            }
+        }
+
+
+
+
     }
 
         

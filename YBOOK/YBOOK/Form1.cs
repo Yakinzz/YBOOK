@@ -10,7 +10,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using YBOOK.Admin;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 
@@ -31,7 +30,7 @@ namespace YBOOK
 
 
         //Configuro la acción del botón cerrar
-        
+
         private void btn_Cerrar_Click_1(object sender, EventArgs e)
         {
             this.Close();
@@ -42,47 +41,46 @@ namespace YBOOK
         {
             listaUsuarios = GetAllUsuario();
             Boolean usuarioVerificado = false;
-
+            Usuario usuarioBBDD = new Usuario();
             Usuario usuario = new Usuario();
+
             for (int i = 0; i < listaUsuarios.Count(); i++)
             {
                 usuario = listaUsuarios[i];
-                if (txtUsernameLogin.Text.Equals(usuario.Username) && txtPasswordLogin.Text.Equals(usuario.Password))
+                if (usuario.Rol.Equals("Usuario"))
                 {
-                    usuarioVerificado = true;
-                    break;
-                }
-            }
-
-            if (usuarioVerificado != false)
-            {
-                Boolean admin = false;
-                List<Rol> roles = new List<Rol>();
-                roles = GetAllRoles();
-                Rol rol = new Rol();
-
-                for (int i = 0; i < roles.Count(); i++)
-                {
-                    rol = roles[i];
-                    if (rol.Name_Rol1.Equals("Admin") && rol.ID_Usuario1 == usuario.ID1)
+                    if (txtUsernameLogin.Text.Equals(usuario.Username) && txtPasswordLogin.Text.Equals(usuario.Password))
                     {
-                        admin = true;
+                        usuarioBBDD = usuario;
+                        usuarioVerificado = true;
                         break;
                     }
                 }
-
-                if (admin != false)
-                {
-                    PaginaPrincipal_Admin formAdmin = new PaginaPrincipal_Admin();
-                    formAdmin.Show();
-                    Hide();
-                }
                 else
+                {
+                    break;
+                }
+                
+            }
+
+           
+            if (usuarioVerificado != false)
+            {
+
+                if (usuarioBBDD.Rol.Equals("Usuario"))
                 {
                     PaginaPrincipal form_PaginaPrincipal = new PaginaPrincipal(listaUsuarios, usuario.Username, cadenaConexion, usuario.ID1);
                     form_PaginaPrincipal.Show();
                     Hide();
                 }
+                else
+                {
+                    MessageBox.Show("Este usuario es administrador. Solo puedes entrar con un usuario normal.");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Usuario y/o contraseña incorrectos.");
             }
         }
 
@@ -113,14 +111,6 @@ namespace YBOOK
             }
         }
 
-        
-        public List<Rol> GetAllRoles()
-        {
-            using (IDbConnection db = new SqlConnection(cadenaConexion))
-            {
-                return (List<Rol>)db.GetAll<Rol>();
-            }
-        }
 
         private void label2_MouseHover(object sender, EventArgs e)
         {

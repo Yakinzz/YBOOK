@@ -87,7 +87,7 @@
             this.btn_EliminarValoracion.BackColor = System.Drawing.Color.LightSalmon;
             this.btn_EliminarValoracion.Font = new System.Drawing.Font("Acephimere", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_EliminarValoracion.ForeColor = System.Drawing.Color.White;
-            this.btn_EliminarValoracion.Location = new System.Drawing.Point(803, 310);
+            this.btn_EliminarValoracion.Location = new System.Drawing.Point(938, 310);
             this.btn_EliminarValoracion.Name = "btn_EliminarValoracion";
             this.btn_EliminarValoracion.Size = new System.Drawing.Size(129, 44);
             this.btn_EliminarValoracion.TabIndex = 4;
@@ -362,6 +362,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
+
         }
 
         private System.Windows.Forms.PictureBox pictureBox1;

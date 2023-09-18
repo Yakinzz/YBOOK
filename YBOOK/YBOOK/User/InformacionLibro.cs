@@ -120,7 +120,7 @@ namespace YBOOK
     
             
             txtTitulo.Text = libroSeleccionado.Titulo1;
-            txtAutor.Text = autor.Nombre1; //Se llama a la clase autor para obtener el nombre de la consulta realizada en este docuemnto
+            txtAutor.Text = autor.Nombre1; //Se llama a la clase autor para obtener el nombre de la consulta realizada en este documento
             txtIdioma.Text = libroSeleccionado.Idioma1;
             txtEditorial.Text = libroSeleccionado.Editorial1;
             txtCategoria.Text = libroSeleccionado.Categoria1;

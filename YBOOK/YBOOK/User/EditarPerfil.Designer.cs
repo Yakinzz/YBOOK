@@ -33,7 +33,7 @@
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.txtUsername = new System.Windows.Forms.TextBox();
             this.txtApellidos = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cb_Nacionalidad = new System.Windows.Forms.ComboBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -43,11 +43,14 @@
             this.label6 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.cbGenero = new System.Windows.Forms.ComboBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btn_EditarDatos = new System.Windows.Forms.Button();
+            this.btn_Actualizar = new System.Windows.Forms.Button();
+            this.btn_Canelar = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -56,52 +59,57 @@
             // txtNombre
             // 
             this.txtNombre.BackColor = System.Drawing.Color.White;
+            this.txtNombre.Enabled = false;
             this.txtNombre.Font = new System.Drawing.Font("Acephimere", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNombre.ForeColor = System.Drawing.Color.Gainsboro;
+            this.txtNombre.ForeColor = System.Drawing.Color.RoyalBlue;
             this.txtNombre.Location = new System.Drawing.Point(10, 58);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(223, 31);
-            this.txtNombre.TabIndex = 56;
+            this.txtNombre.TabIndex = 1;
             // 
             // txtEmail
             // 
             this.txtEmail.BackColor = System.Drawing.Color.White;
+            this.txtEmail.Enabled = false;
             this.txtEmail.Font = new System.Drawing.Font("Acephimere", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEmail.ForeColor = System.Drawing.Color.Gainsboro;
+            this.txtEmail.ForeColor = System.Drawing.Color.RoyalBlue;
             this.txtEmail.Location = new System.Drawing.Point(10, 212);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(223, 31);
-            this.txtEmail.TabIndex = 53;
+            this.txtEmail.TabIndex = 3;
             // 
             // txtUsername
             // 
             this.txtUsername.BackColor = System.Drawing.Color.White;
             this.txtUsername.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtUsername.Enabled = false;
             this.txtUsername.Font = new System.Drawing.Font("Acephimere", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUsername.ForeColor = System.Drawing.Color.Gainsboro;
+            this.txtUsername.ForeColor = System.Drawing.Color.RoyalBlue;
             this.txtUsername.Location = new System.Drawing.Point(10, 56);
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(223, 31);
-            this.txtUsername.TabIndex = 44;
+            this.txtUsername.TabIndex = 6;
             // 
             // txtApellidos
             // 
             this.txtApellidos.BackColor = System.Drawing.Color.White;
+            this.txtApellidos.Enabled = false;
             this.txtApellidos.Font = new System.Drawing.Font("Acephimere", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtApellidos.ForeColor = System.Drawing.Color.Gainsboro;
+            this.txtApellidos.ForeColor = System.Drawing.Color.RoyalBlue;
             this.txtApellidos.Location = new System.Drawing.Point(10, 135);
             this.txtApellidos.Name = "txtApellidos";
             this.txtApellidos.Size = new System.Drawing.Size(223, 31);
-            this.txtApellidos.TabIndex = 62;
+            this.txtApellidos.TabIndex = 2;
             // 
-            // comboBox1
+            // cb_Nacionalidad
             // 
-            this.comboBox1.BackColor = System.Drawing.Color.White;
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.Font = new System.Drawing.Font("Acephimere", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.ForeColor = System.Drawing.SystemColors.MenuBar;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.cb_Nacionalidad.BackColor = System.Drawing.Color.White;
+            this.cb_Nacionalidad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cb_Nacionalidad.Enabled = false;
+            this.cb_Nacionalidad.Font = new System.Drawing.Font("Acephimere", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cb_Nacionalidad.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.cb_Nacionalidad.FormattingEnabled = true;
+            this.cb_Nacionalidad.Items.AddRange(new object[] {
             "Afganistán",
             "Alemania",
             "Arabia Saudita",
@@ -172,21 +180,23 @@
             "Uruguay",
             "Venezuela",
             "Vietnam"});
-            this.comboBox1.Location = new System.Drawing.Point(10, 210);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(223, 32);
-            this.comboBox1.TabIndex = 68;
+            this.cb_Nacionalidad.Location = new System.Drawing.Point(10, 210);
+            this.cb_Nacionalidad.Name = "cb_Nacionalidad";
+            this.cb_Nacionalidad.Size = new System.Drawing.Size(223, 32);
+            this.cb_Nacionalidad.TabIndex = 8;
             // 
             // dateTimePicker1
             // 
             this.dateTimePicker1.CalendarFont = new System.Drawing.Font("Acephimere", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePicker1.CalendarTitleForeColor = System.Drawing.Color.RoyalBlue;
             this.dateTimePicker1.DropDownAlign = System.Windows.Forms.LeftRightAlignment.Right;
+            this.dateTimePicker1.Enabled = false;
             this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateTimePicker1.Location = new System.Drawing.Point(10, 367);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(229, 29);
-            this.dateTimePicker1.TabIndex = 71;
+            this.dateTimePicker1.TabIndex = 5;
             // 
             // label1
             // 
@@ -250,20 +260,22 @@
             // 
             // button1
             // 
-            this.button1.Font = new System.Drawing.Font("Acephimere", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.BackColor = System.Drawing.Color.RoyalBlue;
+            this.button1.Font = new System.Drawing.Font("Acephimere", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.White;
             this.button1.Location = new System.Drawing.Point(10, 122);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(223, 31);
-            this.button1.TabIndex = 79;
+            this.button1.TabIndex = 7;
             this.button1.Text = "Cambiar Contraseña";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.UseVisualStyleBackColor = false;
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.txtEmail);
-            this.groupBox1.Controls.Add(this.comboBox2);
+            this.groupBox1.Controls.Add(this.cbGenero);
             this.groupBox1.Controls.Add(this.txtNombre);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.txtApellidos);
@@ -278,22 +290,6 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos Personales";
             // 
-            // comboBox2
-            // 
-            this.comboBox2.BackColor = System.Drawing.Color.White;
-            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox2.Font = new System.Drawing.Font("Acephimere", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox2.ForeColor = System.Drawing.SystemColors.MenuBar;
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
-            "Hombre",
-            "Mujer",
-            "Otro"});
-            this.comboBox2.Location = new System.Drawing.Point(10, 290);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(223, 32);
-            this.comboBox2.TabIndex = 81;
-            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -304,10 +300,27 @@
             this.label7.TabIndex = 82;
             this.label7.Text = "Género";
             // 
+            // cbGenero
+            // 
+            this.cbGenero.BackColor = System.Drawing.Color.White;
+            this.cbGenero.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbGenero.Enabled = false;
+            this.cbGenero.Font = new System.Drawing.Font("Acephimere", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbGenero.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.cbGenero.FormattingEnabled = true;
+            this.cbGenero.Items.AddRange(new object[] {
+            "Masculino",
+            "Femenino",
+            "Otro"});
+            this.cbGenero.Location = new System.Drawing.Point(10, 290);
+            this.cbGenero.Name = "cbGenero";
+            this.cbGenero.Size = new System.Drawing.Size(223, 32);
+            this.cbGenero.TabIndex = 4;
+            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.txtUsername);
-            this.groupBox2.Controls.Add(this.comboBox1);
+            this.groupBox2.Controls.Add(this.cb_Nacionalidad);
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.button1);
@@ -331,9 +344,52 @@
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pictureBox1.Location = new System.Drawing.Point(360, 12);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(732, 688);
+            this.pictureBox1.Size = new System.Drawing.Size(732, 620);
             this.pictureBox1.TabIndex = 84;
             this.pictureBox1.TabStop = false;
+            // 
+            // btn_EditarDatos
+            // 
+            this.btn_EditarDatos.BackColor = System.Drawing.Color.RoyalBlue;
+            this.btn_EditarDatos.Font = new System.Drawing.Font("Acephimere", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_EditarDatos.ForeColor = System.Drawing.Color.White;
+            this.btn_EditarDatos.Location = new System.Drawing.Point(360, 662);
+            this.btn_EditarDatos.Name = "btn_EditarDatos";
+            this.btn_EditarDatos.Size = new System.Drawing.Size(220, 38);
+            this.btn_EditarDatos.TabIndex = 85;
+            this.btn_EditarDatos.Text = "Editar Información";
+            this.btn_EditarDatos.UseVisualStyleBackColor = false;
+            this.btn_EditarDatos.Click += new System.EventHandler(this.btn_EditarDatos_Click);
+            // 
+            // btn_Actualizar
+            // 
+            this.btn_Actualizar.BackColor = System.Drawing.Color.LimeGreen;
+            this.btn_Actualizar.Enabled = false;
+            this.btn_Actualizar.Font = new System.Drawing.Font("Acephimere", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Actualizar.ForeColor = System.Drawing.Color.White;
+            this.btn_Actualizar.Location = new System.Drawing.Point(618, 662);
+            this.btn_Actualizar.Name = "btn_Actualizar";
+            this.btn_Actualizar.Size = new System.Drawing.Size(220, 38);
+            this.btn_Actualizar.TabIndex = 86;
+            this.btn_Actualizar.Text = "Actualizar";
+            this.btn_Actualizar.UseVisualStyleBackColor = false;
+            this.btn_Actualizar.Visible = false;
+            this.btn_Actualizar.Click += new System.EventHandler(this.btn_Actualizar_Click);
+            // 
+            // btn_Canelar
+            // 
+            this.btn_Canelar.BackColor = System.Drawing.Color.Salmon;
+            this.btn_Canelar.Enabled = false;
+            this.btn_Canelar.Font = new System.Drawing.Font("Acephimere", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Canelar.ForeColor = System.Drawing.Color.White;
+            this.btn_Canelar.Location = new System.Drawing.Point(360, 662);
+            this.btn_Canelar.Name = "btn_Canelar";
+            this.btn_Canelar.Size = new System.Drawing.Size(220, 38);
+            this.btn_Canelar.TabIndex = 87;
+            this.btn_Canelar.Text = "Cancelar";
+            this.btn_Canelar.UseVisualStyleBackColor = false;
+            this.btn_Canelar.Visible = false;
+            this.btn_Canelar.Click += new System.EventHandler(this.btn_Canelar_Click);
             // 
             // EditarPerfil
             // 
@@ -341,6 +397,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1137, 712);
+            this.Controls.Add(this.btn_Canelar);
+            this.Controls.Add(this.btn_Actualizar);
+            this.Controls.Add(this.btn_EditarDatos);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -362,7 +421,7 @@
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.TextBox txtUsername;
         private System.Windows.Forms.TextBox txtApellidos;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cb_Nacionalidad;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
@@ -372,10 +431,13 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox cbGenero;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.ImageList imageList1;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button btn_EditarDatos;
+        private System.Windows.Forms.Button btn_Actualizar;
+        private System.Windows.Forms.Button btn_Canelar;
     }
 }
