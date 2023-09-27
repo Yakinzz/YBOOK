@@ -118,7 +118,7 @@
             this.fecha_Publicacion.Name = "fecha_Publicacion";
             this.fecha_Publicacion.Size = new System.Drawing.Size(125, 27);
             this.fecha_Publicacion.TabIndex = 6;
-            this.fecha_Publicacion.Value = new System.DateTime(1999, 1, 1, 0, 0, 0, 0);
+            this.fecha_Publicacion.Value = new System.DateTime(2023, 9, 24, 16, 49, 40, 0);
             // 
             // label7
             // 

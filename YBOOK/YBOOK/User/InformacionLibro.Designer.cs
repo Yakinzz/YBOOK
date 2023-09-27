@@ -123,7 +123,7 @@
             // 
             // txtTitulo
             // 
-            this.txtTitulo.BackColor = System.Drawing.Color.White;
+            this.txtTitulo.BackColor = System.Drawing.Color.Lavender;
             this.txtTitulo.Font = new System.Drawing.Font("Acephimere", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTitulo.ForeColor = System.Drawing.Color.RoyalBlue;
             this.txtTitulo.Location = new System.Drawing.Point(36, 60);
@@ -134,7 +134,7 @@
             // 
             // txtAutor
             // 
-            this.txtAutor.BackColor = System.Drawing.Color.White;
+            this.txtAutor.BackColor = System.Drawing.Color.Lavender;
             this.txtAutor.Font = new System.Drawing.Font("Acephimere", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtAutor.ForeColor = System.Drawing.Color.RoyalBlue;
             this.txtAutor.Location = new System.Drawing.Point(333, 60);
@@ -145,7 +145,7 @@
             // 
             // txtIdioma
             // 
-            this.txtIdioma.BackColor = System.Drawing.Color.White;
+            this.txtIdioma.BackColor = System.Drawing.Color.Lavender;
             this.txtIdioma.Font = new System.Drawing.Font("Acephimere", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtIdioma.ForeColor = System.Drawing.Color.RoyalBlue;
             this.txtIdioma.Location = new System.Drawing.Point(36, 130);
@@ -156,7 +156,7 @@
             // 
             // txtEditorial
             // 
-            this.txtEditorial.BackColor = System.Drawing.Color.White;
+            this.txtEditorial.BackColor = System.Drawing.Color.Lavender;
             this.txtEditorial.Font = new System.Drawing.Font("Acephimere", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtEditorial.ForeColor = System.Drawing.Color.RoyalBlue;
             this.txtEditorial.Location = new System.Drawing.Point(333, 130);
@@ -167,7 +167,7 @@
             // 
             // txtCategoria
             // 
-            this.txtCategoria.BackColor = System.Drawing.Color.White;
+            this.txtCategoria.BackColor = System.Drawing.Color.Lavender;
             this.txtCategoria.Font = new System.Drawing.Font("Acephimere", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCategoria.ForeColor = System.Drawing.Color.RoyalBlue;
             this.txtCategoria.Location = new System.Drawing.Point(36, 211);
@@ -178,7 +178,7 @@
             // 
             // txtFechaPublicacion
             // 
-            this.txtFechaPublicacion.BackColor = System.Drawing.Color.White;
+            this.txtFechaPublicacion.BackColor = System.Drawing.Color.Lavender;
             this.txtFechaPublicacion.Font = new System.Drawing.Font("Acephimere", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtFechaPublicacion.ForeColor = System.Drawing.Color.RoyalBlue;
             this.txtFechaPublicacion.Location = new System.Drawing.Point(36, 291);
@@ -189,7 +189,7 @@
             // 
             // txtNumeroPaginas
             // 
-            this.txtNumeroPaginas.BackColor = System.Drawing.Color.White;
+            this.txtNumeroPaginas.BackColor = System.Drawing.Color.Lavender;
             this.txtNumeroPaginas.Font = new System.Drawing.Font("Acephimere", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNumeroPaginas.ForeColor = System.Drawing.Color.RoyalBlue;
             this.txtNumeroPaginas.Location = new System.Drawing.Point(36, 378);
@@ -242,7 +242,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.BackgroundImage = global::YBOOK.Properties.Resources.fondoInformacionLibro;
+            this.pictureBox1.BackgroundImage = global::YBOOK.Properties.Resources.fondoInformacionLibro1;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pictureBox1.Location = new System.Drawing.Point(261, 168);
             this.pictureBox1.Name = "pictureBox1";
@@ -268,7 +268,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.BackColor = System.Drawing.Color.Lavender;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.lb_eliminatemislibros);
@@ -298,6 +298,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
+
         }
 
         private System.Windows.Forms.PictureBox pictureBox1;

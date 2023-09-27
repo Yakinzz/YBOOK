@@ -47,10 +47,10 @@
             this.cbGenero = new System.Windows.Forms.ComboBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btn_EditarDatos = new System.Windows.Forms.Button();
             this.btn_Actualizar = new System.Windows.Forms.Button();
             this.btn_Canelar = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -269,6 +269,7 @@
             this.button1.TabIndex = 7;
             this.button1.Text = "Cambiar Contraseña";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // groupBox1
             // 
@@ -338,16 +339,6 @@
             this.imageList1.ImageSize = new System.Drawing.Size(16, 16);
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackgroundImage = global::YBOOK.Properties.Resources.fondoEditarPerfil;
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox1.Location = new System.Drawing.Point(360, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(732, 620);
-            this.pictureBox1.TabIndex = 84;
-            this.pictureBox1.TabStop = false;
-            // 
             // btn_EditarDatos
             // 
             this.btn_EditarDatos.BackColor = System.Drawing.Color.RoyalBlue;
@@ -390,6 +381,16 @@
             this.btn_Canelar.UseVisualStyleBackColor = false;
             this.btn_Canelar.Visible = false;
             this.btn_Canelar.Click += new System.EventHandler(this.btn_Canelar_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = global::YBOOK.Properties.Resources.fondoEditarPerfil;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox1.Location = new System.Drawing.Point(360, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(732, 620);
+            this.pictureBox1.TabIndex = 84;
+            this.pictureBox1.TabStop = false;
             // 
             // EditarPerfil
             // 

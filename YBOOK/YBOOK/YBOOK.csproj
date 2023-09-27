@@ -53,6 +53,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration.Install" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.SQLite, Version=1.0.118.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
       <HintPath>..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.118.0\lib\net46\System.Data.SQLite.dll</HintPath>
@@ -63,6 +64,8 @@
     <Reference Include="System.Data.SQLite.Linq, Version=1.0.118.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Data.SQLite.Linq.1.0.118.0\lib\net46\System.Data.SQLite.Linq.dll</HintPath>
     </Reference>
+    <Reference Include="System.Management" />
+    <Reference Include="System.ServiceProcess" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -88,6 +91,12 @@
       <DependentUpon>Biblioteca.cs</DependentUpon>
     </Compile>
     <Compile Include="Class\CustomUI.cs" />
+    <Compile Include="User\CambiarPassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User\CambiarPassword.Designer.cs">
+      <DependentUpon>CambiarPassword.cs</DependentUpon>
+    </Compile>
     <Compile Include="User\ConfirmacionEstado.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -114,12 +123,6 @@
       <DependentUpon>InformacionLibro.cs</DependentUpon>
     </Compile>
     <Compile Include="Class\Libro.cs" />
-    <Compile Include="User\MasInformacionValoracion.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="User\MasInformacionValoracion.Designer.cs">
-      <DependentUpon>MasInformacionValoracion.cs</DependentUpon>
-    </Compile>
     <Compile Include="User\MisLibros.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -165,6 +168,9 @@
     <EmbeddedResource Include="User\Biblioteca.resx">
       <DependentUpon>Biblioteca.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="User\CambiarPassword.resx">
+      <DependentUpon>CambiarPassword.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="User\ConfirmacionEstado.resx">
       <DependentUpon>ConfirmacionEstado.cs</DependentUpon>
     </EmbeddedResource>
@@ -176,9 +182,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="User\InformacionLibro.resx">
       <DependentUpon>InformacionLibro.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="User\MasInformacionValoracion.resx">
-      <DependentUpon>MasInformacionValoracion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="User\MisLibros.resx">
       <DependentUpon>MisLibros.cs</DependentUpon>
@@ -310,13 +313,18 @@
   <ItemGroup>
     <Content Include="Resources\add_amislibros.png" />
     <Content Include="Resources\add_amislibroswhite.png" />
+    <None Include="Resources\user_profile_21.png" />
+    <None Include="Resources\cambioPassword.png" />
     <Content Include="Resources\eliminate.png" />
     <Content Include="Resources\fondoCreaAutor.jpg" />
+    <None Include="Resources\fondoCreaAutor1.jpg" />
     <Content Include="Resources\fondoEstado.jpg" />
     <Content Include="Resources\fondoInformacionLibro.jpg" />
+    <None Include="Resources\fondoInformacionLibro1.jpg" />
     <Content Include="Resources\fondoMisLibros.jpg" />
     <Content Include="Resources\fondoValoracion.jpg" />
     <Content Include="Resources\fondo_UsuariosAdmin.jpg" />
+    <None Include="Resources\programador.png" />
     <Content Include="Resources\user_profile.png" />
     <Content Include="Resources\user_profile_2.png" />
   </ItemGroup>

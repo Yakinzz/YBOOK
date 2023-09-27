@@ -19,6 +19,8 @@ namespace YBOOK
         List<Libro> listlibros = new List<Libro>();
         List<Autor> listautores = new List<Autor>();
         int idUsuario;
+        Libro libro = new Libro();
+        Libro nuevoLibro = new Libro();
         public AñadirLibro(string cadenaConexionA,int id_Usuario)
         {
             InitializeComponent();
@@ -40,8 +42,8 @@ namespace YBOOK
         private void btn_AñadirLibro_Click(object sender, EventArgs e)
         {
 
-            Libro libro = new Libro();
-            
+
+            string fechaPublicacion=null;
             Boolean libroRegistrado = false;
             Boolean valido = false;
             for (int i = 0; i < listlibros.Count(); i++)
@@ -54,7 +56,7 @@ namespace YBOOK
                 }
             }
 
-            Libro nuevoLibro = new Libro();
+            
             if (libroRegistrado == false)
             {
                 if (!String.IsNullOrEmpty(txt_Titulo.Text))
@@ -92,9 +94,8 @@ namespace YBOOK
                                     if (Numero_Páginas.Value != 0)
                                     {
                                         nuevoLibro.NumeroPaginas1 = (int)Numero_Páginas.Value;
-                                        DateTime fecha = fecha_Publicacion.Value.Date;
-                                        MessageBox.Show(fecha.ToString());
-                                        nuevoLibro.FechaPublicacion1=fecha;
+                                        DateTime fecha = fecha_Publicacion.Value;
+                                        fechaPublicacion = fecha.ToString("yyyy/MM/dd");                                       
                                         valido = true;
                                     }
                                     else
@@ -137,21 +138,18 @@ namespace YBOOK
             //Compruebo que el libro haya pasado todas la validaciones
             if (valido == true)
             {
-                AddAMisLibros(nuevoLibro, idUsuario);
-                MessageBox.Show("El libro " + libro.Titulo1 + " se ha agregado correctamente.");
+                
+                using (IDbConnection db = new SqlConnection(cadenaConexion))
+                {
+                    var consulta = $@"INSERT INTO Libros (Titulo,AutorID,Idioma,Editorial,Categoria,FechaPublicacion,NumeroPaginas) VALUES ('" + nuevoLibro.Titulo1 + "'," + nuevoLibro.Autor1 + ",'" + nuevoLibro.Idioma1 + "','" + nuevoLibro.Editorial1 + "','" + nuevoLibro.Categoria1 + "','" + fechaPublicacion + "'," + nuevoLibro.NumeroPaginas1 + ")";
+                    db.Execute(consulta, nuevoLibro);
+                }
+                MessageBox.Show("El libro " + txt_Titulo.Text + " se ha agregado correctamente.");
             }
 
         }
 
-        private static void AddAMisLibros(Libro nuevoMiLibro, int idUsuario)
-        {
-
-            using (IDbConnection db = new SqlConnection(cadenaConexion))
-            {
-                var consulta = $@"INSERT INTO Libros (Titulo,AutorID,Idioma,Editorial,Categoria,FechaPublicacion,NumeroPaginas) VALUES ('" + nuevoMiLibro.Titulo1 + "'," + nuevoMiLibro.Autor1 + ",'" + nuevoMiLibro.Idioma1 + "','"+ nuevoMiLibro.Editorial1 +"','"+ nuevoMiLibro.Categoria1 +"',"+ nuevoMiLibro.FechaPublicacion1 +","+ nuevoMiLibro.NumeroPaginas1+")";
-                db.Execute(consulta, nuevoMiLibro);
-            }
-        }
+        
 
         public List<Libro> GetAllLibros()
         {

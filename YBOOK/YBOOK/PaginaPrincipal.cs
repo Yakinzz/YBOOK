@@ -22,7 +22,7 @@ namespace YBOOK
             id_usuario = id_usuarioA;
 
 
-            label_Username.Text = username;
+            txt_UsernamePrueba.Text= username;
 
             label_NombreSeccion.Text = "BIBLIOTECA";
             this.panelLoader.Controls.Clear();
@@ -126,7 +126,9 @@ namespace YBOOK
         {
             Form_Inicial form = new Form_Inicial();
             form.Show();
+            
             Hide();
+            MessageBox.Show("Se ha cerrado sesión correctamente.");
         }
 
 
@@ -183,6 +185,20 @@ namespace YBOOK
         {
             btnEditarPerfil.BackColor = Color.RoyalBlue;
             btnEditarPerfil.ForeColor = Color.Black;
+        }
+
+        private void btnLogout_MouseMove(object sender, MouseEventArgs e)
+        {
+            btnLogout.BackColor = Color.RoyalBlue;
+            btnLogout.ForeColor = Color.Black;
+
+
+        }
+
+        private void btnLogout_MouseLeave(object sender, EventArgs e)
+        {
+            
+            btnLogout.ForeColor = Color.White;
         }
 
         

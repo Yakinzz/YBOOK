@@ -56,9 +56,9 @@ namespace YBOOK
                             nuevoAutor.FechaFallecimiento1 = dt_FechaFallecimiento.Value;
                             using (IDbConnection db = new SqlConnection(cadenaConexion))
                             {
-                                MessageBox.Show("Hola 1");
-                                var consulta = $@"INSERT INTO Autores (Nombre,Apellidos,Nacionalidad,FechaNacimiento,FechaFallecimiento) VALUES ("+ nuevoAutor.Nombre1 + "," + nuevoAutor.Apellidos1 + "," + nuevoAutor.Nacionalidad1 + ",'"+ nuevoAutor.FechaNacimiento1 +"','"+ nuevoAutor.FechaFallecimiento1 +"')";
+                                var consulta = $@"INSERT INTO Autores (Nombre,Apellidos,Nacionalidad,FechaNacimiento,FechaFallecimiento) VALUES ('"+ nuevoAutor.Nombre1 + "','" + nuevoAutor.Apellidos1 + "','" + nuevoAutor.Nacionalidad1 + "','"+ nuevoAutor.FechaNacimiento1 +"','"+ nuevoAutor.FechaFallecimiento1 +"')";
                                 db.Execute(consulta,nuevoAutor);
+                                MessageBox.Show("AUTOR CREADO CORRECTAMENTE.");
                             }
                         }
                         else
@@ -66,9 +66,9 @@ namespace YBOOK
                             nuevoAutor.FechaFallecimiento1 = dt_FechaFallecimiento.Value;
                             using (IDbConnection db = new SqlConnection(cadenaConexion))
                             {
-                                MessageBox.Show("Hola 2");
-                                var consulta = $@"INSERT INTO Autores (Nombre,Apellidos,Nacionalidad,FechaNacimiento,FechaFallecimiento) VALUES ('" + nuevoAutor.Nombre1 + "'," + nuevoAutor.Apellidos1 + ",'" + nuevoAutor.Nacionalidad1 + "','"+ nuevoAutor.FechaNacimiento1 +"','"+ nuevoAutor.FechaFallecimiento1 +"')";
+                                var consulta = $@"INSERT INTO Autores (Nombre,Apellidos,Nacionalidad,FechaNacimiento,FechaFallecimiento) VALUES ('" + nuevoAutor.Nombre1 + "','" + nuevoAutor.Apellidos1 + "','" + nuevoAutor.Nacionalidad1 + "','"+ nuevoAutor.FechaNacimiento1 +"','"+ nuevoAutor.FechaFallecimiento1 +"')";
                                 db.Execute(consulta,nuevoAutor);
+                                MessageBox.Show("AUTOR CREADO CORRECTAMENTE.");
                             } 
                         }
                     }else{

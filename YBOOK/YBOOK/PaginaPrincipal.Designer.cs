@@ -40,12 +40,12 @@
             this.btnLibrosUsuario = new System.Windows.Forms.Button();
             this.btnLibros = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.label_Username = new System.Windows.Forms.Label();
+            this.txt_UsernamePrueba = new System.Windows.Forms.TextBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panelLoader = new System.Windows.Forms.Panel();
             this.label_NombreSeccion = new System.Windows.Forms.Label();
             this.btn_Cerrar = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -110,14 +110,14 @@
             // 
             // btnLogout
             // 
+            this.btnLogout.BackColor = System.Drawing.Color.Transparent;
             this.btnLogout.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnLogout.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.btnLogout.FlatAppearance.BorderSize = 0;
-            this.btnLogout.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.btnLogout.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogout.Font = new System.Drawing.Font("Acephimere", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogout.ForeColor = System.Drawing.Color.White;
-            this.btnLogout.Image = global::YBOOK.Properties.Resources.logout;
             this.btnLogout.Location = new System.Drawing.Point(5, 755);
             this.btnLogout.Margin = new System.Windows.Forms.Padding(10);
             this.btnLogout.Name = "btnLogout";
@@ -125,8 +125,10 @@
             this.btnLogout.TabIndex = 6;
             this.btnLogout.Text = "Logout";
             this.btnLogout.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.btnLogout.UseVisualStyleBackColor = true;
+            this.btnLogout.UseVisualStyleBackColor = false;
             this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
+            this.btnLogout.MouseLeave += new System.EventHandler(this.btnLogout_MouseLeave);
+            this.btnLogout.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnLogout_MouseMove);
             // 
             // btnEditarPerfil
             // 
@@ -238,8 +240,9 @@
             // 
             // panel2
             // 
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel2.Controls.Add(this.txt_UsernamePrueba);
             this.panel2.Controls.Add(this.pictureBox1);
-            this.panel2.Controls.Add(this.label_Username);
             this.panel2.Controls.Add(this.panel3);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(5, 5);
@@ -247,18 +250,28 @@
             this.panel2.Size = new System.Drawing.Size(159, 132);
             this.panel2.TabIndex = 0;
             // 
-            // label_Username
+            // txt_UsernamePrueba
             // 
-            this.label_Username.AutoSize = true;
-            this.label_Username.BackColor = System.Drawing.Color.RoyalBlue;
-            this.label_Username.Font = new System.Drawing.Font("Acephimere", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_Username.ForeColor = System.Drawing.Color.Black;
-            this.label_Username.Location = new System.Drawing.Point(28, 95);
-            this.label_Username.Name = "label_Username";
-            this.label_Username.Size = new System.Drawing.Size(93, 20);
-            this.label_Username.TabIndex = 17;
-            this.label_Username.Text = "USERNAME";
-            this.label_Username.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.txt_UsernamePrueba.BackColor = System.Drawing.Color.RoyalBlue;
+            this.txt_UsernamePrueba.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txt_UsernamePrueba.Font = new System.Drawing.Font("Acephimere", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_UsernamePrueba.ForeColor = System.Drawing.SystemColors.Window;
+            this.txt_UsernamePrueba.Location = new System.Drawing.Point(-2, 88);
+            this.txt_UsernamePrueba.Name = "txt_UsernamePrueba";
+            this.txt_UsernamePrueba.ReadOnly = true;
+            this.txt_UsernamePrueba.Size = new System.Drawing.Size(159, 26);
+            this.txt_UsernamePrueba.TabIndex = 19;
+            this.txt_UsernamePrueba.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = global::YBOOK.Properties.Resources.programador;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox1.Location = new System.Drawing.Point(40, 10);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(81, 72);
+            this.pictureBox1.TabIndex = 18;
+            this.pictureBox1.TabStop = false;
             // 
             // panel3
             // 
@@ -302,16 +315,6 @@
             this.btn_Cerrar.UseVisualStyleBackColor = true;
             this.btn_Cerrar.Click += new System.EventHandler(this.btn_Cerrar_Click);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackgroundImage = global::YBOOK.Properties.Resources.user_profile_2;
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox1.Location = new System.Drawing.Point(40, 10);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(81, 72);
-            this.pictureBox1.TabIndex = 18;
-            this.pictureBox1.TabStop = false;
-            // 
             // PaginaPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -332,6 +335,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
+
         }
 
         private System.Windows.Forms.PictureBox pictureBox1;
@@ -350,10 +354,10 @@
         private System.Windows.Forms.Button btnAñadirLibro;
         private System.Windows.Forms.Button btnLogout;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Label label_Username;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.TextBox txt_UsernamePrueba;
     }
 }

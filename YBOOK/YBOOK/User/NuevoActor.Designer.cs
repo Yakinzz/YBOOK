@@ -31,7 +31,6 @@ namespace YBOOK
         /// </summary>
         private void InitializeComponent()
         {
-            this.btn_Cerrar = new System.Windows.Forms.Button();
             this.txt_Nombre = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txt_Apellidos = new System.Windows.Forms.TextBox();
@@ -43,28 +42,15 @@ namespace YBOOK
             this.dt_FechaNacimiento = new System.Windows.Forms.DateTimePicker();
             this.dt_FechaFallecimiento = new System.Windows.Forms.DateTimePicker();
             this.label_FF = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btn_CrearAutor = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btn_Cerrar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // btn_Cerrar
-            // 
-            this.btn_Cerrar.BackgroundImage = global::YBOOK.Properties.Resources.close_icon;
-            this.btn_Cerrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btn_Cerrar.FlatAppearance.BorderSize = 0;
-            this.btn_Cerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Cerrar.Location = new System.Drawing.Point(801, 12);
-            this.btn_Cerrar.Name = "btn_Cerrar";
-            this.btn_Cerrar.Size = new System.Drawing.Size(25, 25);
-            this.btn_Cerrar.TabIndex = 15;
-            this.btn_Cerrar.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            this.btn_Cerrar.UseVisualStyleBackColor = true;
-            this.btn_Cerrar.Click += new System.EventHandler(this.btn_Cerrar_Click);
-            // 
             // txt_Nombre
             // 
-            this.txt_Nombre.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(211)))), ((int)(((byte)(185)))), ((int)(((byte)(251)))));
+            this.txt_Nombre.BackColor = System.Drawing.Color.Lavender;
             this.txt_Nombre.Font = new System.Drawing.Font("Acephimere", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_Nombre.ForeColor = System.Drawing.Color.RoyalBlue;
             this.txt_Nombre.Location = new System.Drawing.Point(32, 47);
@@ -84,7 +70,7 @@ namespace YBOOK
             // 
             // txt_Apellidos
             // 
-            this.txt_Apellidos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(211)))), ((int)(((byte)(185)))), ((int)(((byte)(251)))));
+            this.txt_Apellidos.BackColor = System.Drawing.Color.Lavender;
             this.txt_Apellidos.Font = new System.Drawing.Font("Acephimere", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_Apellidos.ForeColor = System.Drawing.Color.RoyalBlue;
             this.txt_Apellidos.Location = new System.Drawing.Point(36, 128);
@@ -104,9 +90,80 @@ namespace YBOOK
             // 
             // cb_Nacionalidad
             // 
-            this.cb_Nacionalidad.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(211)))), ((int)(((byte)(185)))), ((int)(((byte)(251)))));
+            this.cb_Nacionalidad.BackColor = System.Drawing.Color.Lavender;
             this.cb_Nacionalidad.Font = new System.Drawing.Font("Acephimere", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cb_Nacionalidad.FormattingEnabled = true;
+            this.cb_Nacionalidad.Items.AddRange(new object[] {
+            "Afganistán",
+            "Alemania",
+            "Arabia Saudita",
+            "Argentina",
+            "Australia",
+            "Bélgica",
+            "Bolivia",
+            "Brasil",
+            "Camboya",
+            "Canadá",
+            "Chile",
+            "China",
+            "Colombia",
+            "Corea",
+            "Costa Rica",
+            "Cuba",
+            "Dinamarca",
+            "Ecuador",
+            "Egipto",
+            "El Salvador",
+            "Escocia",
+            "España",
+            "Estados Unidos",
+            "Estonia",
+            "Etiopia",
+            "Filipinas",
+            "Finlandia",
+            "Francia",
+            "Gales",
+            "Grecia",
+            "Guatemala",
+            "Haití",
+            "Holanda",
+            "Honduras",
+            "Indonesia",
+            "Inglaterra",
+            "Irak",
+            "Irán",
+            "Irlanda",
+            "Israel",
+            "Italia",
+            "Japón",
+            "Jordania",
+            "Laos",
+            "Letonia",
+            "Lituania",
+            "Malasia",
+            "Marruecos",
+            "México",
+            "Nicaragua",
+            "Noruega",
+            "Nueva Zelanda",
+            "Panamá",
+            "Paraguay",
+            "Perú",
+            "Polonia",
+            "Portugal",
+            "Puerto Rico",
+            "Republica Dominicana",
+            "Rumania",
+            "Rusia",
+            "Suecia",
+            "Suiza",
+            "Tailandia",
+            "Taiwán",
+            "Turquía",
+            "Ucrania",
+            "Uruguay",
+            "Venezuela",
+            "Vietnam"});
             this.cb_Nacionalidad.Location = new System.Drawing.Point(36, 204);
             this.cb_Nacionalidad.Name = "cb_Nacionalidad";
             this.cb_Nacionalidad.Size = new System.Drawing.Size(220, 28);
@@ -147,6 +204,7 @@ namespace YBOOK
             // 
             this.dt_FechaNacimiento.CalendarFont = new System.Drawing.Font("Acephimere", 8.249999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dt_FechaNacimiento.CalendarMonthBackground = System.Drawing.Color.FromArgb(((int)(((byte)(211)))), ((int)(((byte)(185)))), ((int)(((byte)(251)))));
+            this.dt_FechaNacimiento.CalendarTitleBackColor = System.Drawing.Color.Lavender;
             this.dt_FechaNacimiento.Font = new System.Drawing.Font("Acephimere", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dt_FechaNacimiento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dt_FechaNacimiento.Location = new System.Drawing.Point(36, 278);
@@ -177,16 +235,6 @@ namespace YBOOK
             this.label_FF.TabIndex = 26;
             this.label_FF.Text = "Fecha Fallecimiento";
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackgroundImage = global::YBOOK.Properties.Resources.fondoCreaAutor;
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox1.Location = new System.Drawing.Point(342, 20);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(453, 361);
-            this.pictureBox1.TabIndex = 28;
-            this.pictureBox1.TabStop = false;
-            // 
             // btn_CrearAutor
             // 
             this.btn_CrearAutor.BackColor = System.Drawing.Color.RoyalBlue;
@@ -200,11 +248,35 @@ namespace YBOOK
             this.btn_CrearAutor.UseVisualStyleBackColor = false;
             this.btn_CrearAutor.Click += new System.EventHandler(this.btn_CrearAutor_Click);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = global::YBOOK.Properties.Resources.fondoCreaAutor1;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox1.Location = new System.Drawing.Point(342, 20);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(453, 361);
+            this.pictureBox1.TabIndex = 28;
+            this.pictureBox1.TabStop = false;
+            // 
+            // btn_Cerrar
+            // 
+            this.btn_Cerrar.BackgroundImage = global::YBOOK.Properties.Resources.close_icon;
+            this.btn_Cerrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btn_Cerrar.FlatAppearance.BorderSize = 0;
+            this.btn_Cerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Cerrar.Location = new System.Drawing.Point(801, 12);
+            this.btn_Cerrar.Name = "btn_Cerrar";
+            this.btn_Cerrar.Size = new System.Drawing.Size(25, 25);
+            this.btn_Cerrar.TabIndex = 15;
+            this.btn_Cerrar.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.btn_Cerrar.UseVisualStyleBackColor = true;
+            this.btn_Cerrar.Click += new System.EventHandler(this.btn_Cerrar_Click);
+            // 
             // NuevoActor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(211)))), ((int)(((byte)(185)))), ((int)(((byte)(251)))));
+            this.BackColor = System.Drawing.Color.Lavender;
             this.ClientSize = new System.Drawing.Size(838, 475);
             this.Controls.Add(this.btn_CrearAutor);
             this.Controls.Add(this.pictureBox1);

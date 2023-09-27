@@ -196,9 +196,10 @@ namespace YBOOK
             
             using(IDbConnection db = new SqlConnection(cadenaConexion))
             {
-                var consulta = $@"DELETE Valoraciones WHERE ID_Usuario="+nuevaValoracion.ID_Usuario1+" AND ID_Libro="+nuevaValoracion.ID_Libro1+"";
+                var consulta = $@"DELETE Valoraciones WHERE UsuarioID="+nuevaValoracion.ID_Usuario1+" AND LibroID="+nuevaValoracion.ID_Libro1+"";
                 db.Execute(consulta, nuevaValoracion);
             }
+            MessageBox.Show("VALORACIÓN ELIMINADA CORRECTAMENTE");
         }
         
         public List<Valoraciones> GetAllValoraciones()

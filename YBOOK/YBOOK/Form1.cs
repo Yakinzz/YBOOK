@@ -43,6 +43,7 @@ namespace YBOOK
             Boolean usuarioVerificado = false;
             Usuario usuarioBBDD = new Usuario();
             Usuario usuario = new Usuario();
+            Boolean rolAdmin = false;
 
             for (int i = 0; i < listaUsuarios.Count(); i++)
             {
@@ -58,16 +59,14 @@ namespace YBOOK
                 }
                 else
                 {
+                    rolAdmin = true;
                     break;
-                }
-                
+                }        
             }
-
            
-            if (usuarioVerificado != false)
+            if (rolAdmin!=true)
             {
-
-                if (usuarioBBDD.Rol.Equals("Usuario"))
+                if (usuarioVerificado != false)
                 {
                     PaginaPrincipal form_PaginaPrincipal = new PaginaPrincipal(listaUsuarios, usuario.Username, cadenaConexion, usuario.ID1);
                     form_PaginaPrincipal.Show();
@@ -75,13 +74,15 @@ namespace YBOOK
                 }
                 else
                 {
-                    MessageBox.Show("Este usuario es administrador. Solo puedes entrar con un usuario normal.");
+                    MessageBox.Show("Usuario y/o contraseña incorrectos.");
                 }
             }
             else
             {
-                MessageBox.Show("Usuario y/o contraseña incorrectos.");
+                MessageBox.Show("Este usuario es administrador. Solo puedes entrar con un usuario normal.");
             }
+            
+            
         }
 
         //Configuro la acción del botón para cambiar al formulario de Registro

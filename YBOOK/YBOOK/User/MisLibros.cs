@@ -1,4 +1,5 @@
-﻿using Dapper.Contrib.Extensions;
+﻿using Dapper;
+using Dapper.Contrib.Extensions;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -23,6 +24,7 @@ namespace YBOOK
         EstadoLibro libroUsuario = new EstadoLibro();
         int progreso = 0;
         int paginaActual = 0;
+        Libro libroActual = new Libro();
         public MisLibros(string cadenaConexionA, List<Usuario> usuarios, int idUsuario)
         {
             InitializeComponent();
@@ -135,7 +137,7 @@ namespace YBOOK
             string libroSeleccionado = listBox1.SelectedItem.ToString();
 
             Libro libro = new Libro();
-            Libro libroActual = new Libro();
+            
             for (int i = 0; i < libros.Count(); i++)
             {
                 libro = libros[i];
@@ -198,6 +200,12 @@ namespace YBOOK
                 txtPaginaActual.Text = "0";
                 progressBar1.Show();
                 progressBar1.Value = 0;
+                using (IDbConnection db = new SqlConnection(cadenaConexion))
+                {
+                    var consulta = $@"UPDATE MisLibros SET Estado='" + cb_Estado.Text + "',NumeroPaginaActual="+txtPaginaActual.Text+" WHERE ID_Usuario=" + idUsuario + " AND ID_Libro=" + libroActual.ID1 + "";
+                    db.Execute(consulta, libroActual);
+                }
+
             }
             else if (cb_Estado.Text == "Deseado")
             {
@@ -205,6 +213,12 @@ namespace YBOOK
                 label9.Hide();
                 progressBar1.Hide();
                 lb_progreso.Hide();
+                using (IDbConnection db = new SqlConnection(cadenaConexion))
+                {
+                    var consulta = $@"UPDATE MisLibros SET Estado='" + cb_Estado.Text + "',NumeroPaginaActual=0 WHERE ID_Usuario=" + idUsuario + " AND ID_Libro=" + libroActual.ID1 + "";
+                    db.Execute(consulta, libroActual);
+                }
+
             }
             else
             {
@@ -215,8 +229,15 @@ namespace YBOOK
                 progressBar1.Minimum = 0;
                 progressBar1.Maximum = 100;
                 progressBar1.Value = 100;
-                
+                using (IDbConnection db = new SqlConnection(cadenaConexion))
+                {
+                    var consulta = $@"UPDATE MisLibros SET Estado='" + cb_Estado.Text + "',NumeroPaginaActual="+libroActual.NumeroPaginas1+" WHERE ID_Usuario=" + idUsuario + " AND ID_Libro=" + libroActual.ID1 + "";
+                    db.Execute(consulta, libroActual);
+                }
+
             }
+
+            
         }
         /*----------  Controlo cuando modifico el valor de la pagina actual  ----------*/
         private void txtPaginaActual_TextChanged(object sender, EventArgs e)
@@ -231,6 +252,12 @@ namespace YBOOK
                     progressBar1.Minimum = 0;
                     progressBar1.Maximum = numeroPaginasTotales;
                     progressBar1.Value = paginaActual;
+
+                    using (IDbConnection db = new SqlConnection(cadenaConexion))
+                    {
+                        var consulta = $@"UPDATE MisLibros SET NumeroPaginaActual="+paginaActual+" WHERE ID_Usuario=" + idUsuario + " AND ID_Libro=" + libroActual.ID1 + "";
+                        db.Execute(consulta, libroActual);
+                    }
                 }
                 else
                 {
